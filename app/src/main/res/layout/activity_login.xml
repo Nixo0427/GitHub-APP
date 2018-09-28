@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    tools:context=".Common.View.LoginActivity">
+
+
+   <EditText
+       android:id="@+id/login_account"
+       android:hint="GitHub—Name"
+       android:layout_width="match_parent"
+       android:layout_height="60dp" />
+
+    <EditText
+        android:id="@+id/login_password"
+        android:inputType="textPassword"
+        android:hint="GitHub-PassWord"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+
+    <Button
+        android:text="Login"
+        android:id="@+id/login_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
