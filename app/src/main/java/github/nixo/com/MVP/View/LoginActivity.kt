@@ -5,6 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.ly.genjidialog.extensions.UtilsExtension.Companion.dp2px
+import com.ly.genjidialog.extensions.newGenjiDialog
+import com.ly.genjidialog.other.DialogGravity
 import github.nixo.com.MVP.View.MainActivity
 import github.nixo.com.github.Common.Present.LoginPersenter
 import github.nixo.com.github.R
@@ -27,23 +30,27 @@ class LoginActivity :BaseActivity<LoginPersenter>(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        lodding.visibility = View.GONE
+
         layout_login_account.hint = resources.getString(R.string.account)
         layout_login_password.hint = resources.getString(R.string.password)
 
         login_login.setOnClickListener {
-            Log.e("Nixo---debug ---- account+login","${login_account.text}-----${login_password.text}")
+
+//            Log.e("Nixo---debug ---- account+login","${login_account.text}-----${login_password.text}")
              if(login_account.text.toString().isEmpty()){
                  Log.e("Nixo","yes")
                  layout_login_account.error = resources.getString(R.string.account_empty)
+                 return@setOnClickListener
             }else{
                  layout_login_account.isErrorEnabled = false
              }
             if(login_password.text.toString().isEmpty()){
                 layout_login_password.error = resources.getString(R.string.password_empty)
+                return@setOnClickListener
             }else{
                 layout_login_password.isErrorEnabled = false
             }
+            if(login_account.text.toString().isNotEmpty() && login_password.text.toString().isNotEmpty())
             presenter.doLogin(login_account.text.toString(), login_password.text.toString())
         }
     }

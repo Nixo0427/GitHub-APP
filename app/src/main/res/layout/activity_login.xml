@@ -64,28 +64,5 @@
         android:layout_width="match_parent"
         android:layout_height="45dp" />
 
-    <LinearLayout
-        android:id="@+id/lodding"
-        android:visibility="gone"
-        android:gravity="center"
-        android:background="#41000000"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout
-            android:background="@drawable/white_raduis_bg"
-            android:gravity="center"
-            android:layout_width="110dp"
-            android:layout_height="110dp">
-            <com.airbnb.lottie.LottieAnimationView
-                app:lottie_fileName="material_loading_animation.json"
-                app:lottie_imageAssetsFolder="/"
-                app:lottie_autoPlay="true"
-                android:layout_gravity="center"
-                app:lottie_loop="true"
-                android:layout_width="100dp"
-                android:layout_height="100dp" />
-        </RelativeLayout>
-
-    </LinearLayout>
 
 </RelativeLayout>
