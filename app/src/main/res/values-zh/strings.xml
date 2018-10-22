@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login">登录</string>
+    <string name="account_empty">账号不能为空</string>
+    <string name="password_empty">密码不能为空</string>
+    <string name="account">账号</string>
+    <string name="password">密码</string>
+    <string name="login_success">登录成功</string>
+    <string name="login_fail">登录失败</string>
+
+</resources>

@@ -1,6 +1,8 @@
 package github.nixo.com.github.Ext
 
+import github.nixo.com.Ext.Preference
+
 object SharedSetting{
-    var account : String by SharedExt(AppContext,"account","")
-    var passWord : String by SharedExt(AppContext,"password","")
+    var account : String by Preference(AppContext,"account","")
+    var passWord : String by Preference(AppContext,"password","")
 }
