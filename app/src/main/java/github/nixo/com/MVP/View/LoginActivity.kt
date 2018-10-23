@@ -66,6 +66,7 @@ class LoginActivity :BaseActivity<LoginPersenter>(){
 
 
     fun onLoginError(e:Throwable){
+
         toast(resources.getString(R.string.login_fail))
     }
 

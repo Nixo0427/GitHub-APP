@@ -29,7 +29,7 @@ val retrofit by lazy {
                     .cache(Cache(cacheFile,1024*1024*1024)) // 设置请求可用缓存1G
                     .addInterceptor(AcceptInterceptor()) //Accept拦截器
                     .addInterceptor(AuthInterceptor())  //鉴权拦截器
-                    .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))// Log级别,Boby级别，貌似在info打印
+                    .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))// Log级别,Boby级别，貌似在info打印
                     .build()
             )
             .baseUrl(BASE_URL)
