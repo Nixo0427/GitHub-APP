@@ -11,7 +11,6 @@ import github.nixo.com.github.utils.fromJson
 import github.nixo.com.github.utils.pref
 import retrofit2.HttpException
 import rx.Observable
-import rx.Scheduler
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
@@ -59,7 +58,7 @@ object AccountManager {
 
     fun isLoggedIn(): Boolean = token.isNotEmpty()
 
-    fun login() =
+    fun login() :Observable<Unit> =
             AuthService.createAuthorization(AuthorizationReq())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
@@ -93,6 +92,7 @@ object AccountManager {
                         currentUser = it
                         notifyLogin(it)
                     }
+
 
 
     fun logout() = AuthService.deleteAuthorization(authId)
