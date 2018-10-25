@@ -1,16 +1,11 @@
 package github.nixo.com.github.Common.Present
 
-import android.support.v4.app.FragmentManager
-import android.view.View
 import com.ly.genjidialog.extensions.UtilsExtension.Companion.dp2px
 import com.ly.genjidialog.extensions.newGenjiDialog
-import com.ly.genjidialog.other.DialogGravity
-import com.ly.genjidialog.other.DialogGravity.*
-import  github.nixo.com.github.Common.Model.AccountManager
-import github.nixo.com.github.Common.View.LoginActivity
+import github.nixo.com.github.Common.Model.AccountManager
+import github.nixo.com.github.Common.View.auth.LoginActivity
 import github.nixo.com.github.R
 import github.nixo.com.github.mvp.Impl.BasePresenter
-import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginPersenter : BasePresenter<LoginActivity>() {
 

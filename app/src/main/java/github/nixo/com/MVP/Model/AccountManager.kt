@@ -61,8 +61,7 @@ object AccountManager {
 
     fun login() =
             AuthService.createAuthorization(AuthorizationReq())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io())
+
                     .doOnNext {
                         Log.d("Nixo--GetUserInfo--->",it.toString())
 
@@ -86,8 +85,7 @@ object AccountManager {
                         token = it.token
                         authId = it.id
                         UserService.getAuthenticatedUser()
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribeOn(Schedulers.io())
+
                     }
                     .map {
                         currentUser = it
@@ -96,8 +94,7 @@ object AccountManager {
 
 
     fun logout() = AuthService.deleteAuthorization(authId)
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
+
             .doOnNext {
                 Log.d("Nixo--deleteAuthorization--->",it.toString())
                 if (it.isSuccessful) {

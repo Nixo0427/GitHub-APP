@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Common.View.LoginActivity"
+            android:name=".Common.View.auth.LoginActivity"
             android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="github.nixo.com.MVP.View.MainActivity"></activity>
+        <activity android:name="github.nixo.com.MVP.View.MainActivity" />
+        <activity android:name="github.nixo.com.MVP.View.auth.RegisterActivity"></activity>
     </application>
 
 </manifest>
