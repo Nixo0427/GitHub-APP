@@ -65,7 +65,7 @@ class ExcaptionUtil  {
                 return ex
             } else if (e is JsonParseException || e is JSONException) {
                 ex = ResponeThrowable(e, ERROR.PARSE_ERROR)
-                ex.message = "解析错误"
+                ex.message = "解析错误   "
                 return ex
             } else if (e is ConnectException) {
                 ex = ResponeThrowable(e, ERROR.NETWORD_ERROR)

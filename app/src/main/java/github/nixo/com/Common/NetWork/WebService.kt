@@ -3,17 +3,12 @@ package github.nixo.com.github.NetWork
 import android.util.Log
 import github.nixo.com.github.Ext.AppContext
 import github.nixo.com.github.Ext.ensureDir
-import github.nixo.com.github.NetWork.AcceptInterceptor
-import github.nixo.com.github.NetWork.AuthInterceptor
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory2
 import retrofit2.converter.gson.GsonConverterFactory
-import rx.android.schedulers.AndroidSchedulers
-import rx.schedulers.Schedulers
 import java.io.File
 import java.util.concurrent.TimeUnit
 

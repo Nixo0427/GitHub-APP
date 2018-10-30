@@ -1,4 +1,4 @@
-package github.nixo.com.github.Common.View.auth
+package github.nixo.com.github.Common.View
 
 
 import android.content.Intent
@@ -13,7 +13,6 @@ import github.nixo.com.github.Common.Present.LoginPersenter
 import github.nixo.com.github.R
 import github.nixo.com.github.mvp.Impl.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
-import org.jetbrains.anko.sdk15.listeners.onClick
 import org.jetbrains.anko.toast
 
 /**
@@ -54,9 +53,6 @@ class LoginActivity :BaseActivity<LoginPersenter>(){
             if(login_account.text.toString().isNotEmpty() && login_password.text.toString().isNotEmpty())
             presenter.doLogin(login_account.text.toString(), login_password.text.toString())
         }
-
-
-        login_register.onClick {  }
     }
 
 
@@ -70,7 +66,8 @@ class LoginActivity :BaseActivity<LoginPersenter>(){
 
 
     fun onLoginError(e:Throwable){
-        toast(resources.getString(R.string.login_fail))
+        var handleException = ExcaptionUtil.handleException(e)
+        toast(handleException.message.toString())
     }
 
     fun onLoginStart(){

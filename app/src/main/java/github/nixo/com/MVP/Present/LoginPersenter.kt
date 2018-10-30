@@ -1,11 +1,16 @@
 package github.nixo.com.github.Common.Present
 
+import android.support.v4.app.FragmentManager
+import android.view.View
 import com.ly.genjidialog.extensions.UtilsExtension.Companion.dp2px
 import com.ly.genjidialog.extensions.newGenjiDialog
-import github.nixo.com.github.Common.Model.AccountManager
-import github.nixo.com.github.Common.View.auth.LoginActivity
+import com.ly.genjidialog.other.DialogGravity
+import com.ly.genjidialog.other.DialogGravity.*
+import  github.nixo.com.github.Common.Model.AccountManager
+import github.nixo.com.github.Common.View.LoginActivity
 import github.nixo.com.github.R
 import github.nixo.com.github.mvp.Impl.BasePresenter
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginPersenter : BasePresenter<LoginActivity>() {
 
@@ -21,16 +26,21 @@ class LoginPersenter : BasePresenter<LoginActivity>() {
         view.onLoginStart()
 
         AccountManager.login()
-                .subscribe ({
-                    dialog.dismiss()
-                    view.onLoginSuccess()
-                },{
-                    dialog.dismiss()
-                    view.onLoginError(it)
+                .subscribe(object : MySubcrilber<Unit>() {
+                    override fun onNext(t: Unit?) {
+                        view.onLoginSuccess()
+                        dialog.dismiss()
+                    }
+
+                    override fun onError(responseThrows: ExcaptionUtil.ResponeThrowable) {
+                        dialog.dismiss()
+                        view.onLoginError(responseThrows)
+                    }
+
+
                 })
+
+
     }
-
-
-
 
 }
