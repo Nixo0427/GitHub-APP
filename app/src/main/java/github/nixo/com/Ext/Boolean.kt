@@ -1,4 +1,4 @@
-package github.nixo.com.common
+package github.nixo.com.Ext
 
 
 /*这个是密封类，相当于枚举类的扩展类
@@ -19,30 +19,28 @@ class withData<T>(val data:T):BooleanExt<T>()
  * 内连函数，编译时直接插入代码块中
  */
 
-inline fun <T> Boolean.yes(block:() -> T) = when(this){
-    this ->{
-        withData( block())
-    }
-    else ->{
-        Otherwise
-    }
-}
-
-
-
-inline fun <T>BooleanExt<T>.otherwise(block: () -> T):T = when(this){
-    is Otherwise -> block()
-    is withData -> this.data
-}
-
-
-inline fun <T>Boolean.no(block: () -> T):BooleanExt<T> =
-        when{
-            this->{
-                Otherwise
-            }
-            else -> {
-
+inline fun <T> Boolean.yes(block: ()->T) =
+        when {
+            this -> {
                 withData(block())
             }
+            else -> {
+                Otherwise
+            }
         }
+
+
+
+inline fun <T> BooleanExt<T>.otherwise(block: ()->T): T =
+        when(this){
+            is Otherwise -> block()
+            is withData -> this.data
+        }
+
+
+inline fun <T> Boolean.no(block: () -> T) = when {
+    this -> Otherwise
+    else -> {
+        withData(block())
+    }
+}

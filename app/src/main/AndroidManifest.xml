@@ -17,15 +17,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Common.View.auth.LoginActivity"
+            android:name="github.nixo.com.MVP.View.auth.LoginActivity"
             android:label="Login">
+
+        </activity>
+        <activity android:name="github.nixo.com.MVP.View.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="github.nixo.com.MVP.View.MainActivity" />
         <activity android:name="github.nixo.com.MVP.View.auth.RegisterActivity"></activity>
     </application>
 

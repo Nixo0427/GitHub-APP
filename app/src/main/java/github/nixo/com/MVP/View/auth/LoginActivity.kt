@@ -1,18 +1,16 @@
-package github.nixo.com.github.Common.View
+package github.nixo.com.MVP.View.auth
 
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import com.ly.genjidialog.extensions.UtilsExtension.Companion.dp2px
-import com.ly.genjidialog.extensions.newGenjiDialog
-import com.ly.genjidialog.other.DialogGravity
+import com.yanzhenjie.sofia.Sofia
 import github.nixo.com.MVP.View.MainActivity
 import github.nixo.com.github.Common.Present.LoginPersenter
 import github.nixo.com.github.R
 import github.nixo.com.github.mvp.Impl.BaseActivity
+import github.nixo.com.utils.ExcaptionUtil
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.sdk15.coroutines.onClick
 import org.jetbrains.anko.toast
 
 /**
@@ -30,7 +28,7 @@ class LoginActivity :BaseActivity<LoginPersenter>(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
+        Sofia.with(this@LoginActivity).statusBarLightFont()
         layout_login_account.hint = resources.getString(R.string.account)
         layout_login_password.hint = resources.getString(R.string.password)
 

@@ -6,10 +6,12 @@ import com.ly.genjidialog.extensions.UtilsExtension.Companion.dp2px
 import com.ly.genjidialog.extensions.newGenjiDialog
 import com.ly.genjidialog.other.DialogGravity
 import com.ly.genjidialog.other.DialogGravity.*
+import github.nixo.com.Common.NetWork.Services.MySubcrilber
+import github.nixo.com.MVP.View.auth.LoginActivity
 import  github.nixo.com.github.Common.Model.AccountManager
-import github.nixo.com.github.Common.View.LoginActivity
 import github.nixo.com.github.R
 import github.nixo.com.github.mvp.Impl.BasePresenter
+import github.nixo.com.utils.ExcaptionUtil
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginPersenter : BasePresenter<LoginActivity>() {

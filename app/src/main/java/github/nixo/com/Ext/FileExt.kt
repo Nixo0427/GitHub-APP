@@ -1,9 +1,9 @@
 package github.nixo.com.github.Ext
 
 import android.util.Log
-import github.nixo.com.common.no
-import github.nixo.com.common.otherwise
-import github.nixo.com.common.yes
+import github.nixo.com.Ext.no
+import github.nixo.com.Ext.otherwise
+import github.nixo.com.Ext.yes
 import java.io.File
 
 

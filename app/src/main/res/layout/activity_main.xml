@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
+<LinearLayout
+    android:paddingTop="25dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#24292f"
+    tools:context="github.nixo.com.MVP.View.MainActivity">
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="github.nixo.com.MVP.View.MainActivity">
+   >
 
     <RelativeLayout
+       android:background="#eee"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <include layout="@layout/toolbar_layout"/>
+
+
     </RelativeLayout>
 
 
-    <RelativeLayout
+    <android.support.design.widget.NavigationView
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:id="@+id/navigation_view"
-    android:layout_gravity="left|start"
-
+        app:headerLayout="@layout/header_layout"
+        android:layout_gravity="left|start"
     >
 
-        <include layout="@layout/header_layout"/>
-    </RelativeLayout>
+    </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>
+</LinearLayout>
