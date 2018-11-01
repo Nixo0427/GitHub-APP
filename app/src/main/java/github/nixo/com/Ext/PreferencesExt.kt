@@ -1,6 +1,7 @@
 package github.nixo.com.Ext
 
 import android.content.Context
+import android.content.SharedPreferences
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
@@ -55,4 +56,9 @@ class Preference<T>(val context: Context, val name: String, val default: T, val 
         }.apply()
     }
 
+    fun getPref():SharedPreferences = this.getPref()
+
+     fun deleteSpref(){
+     prefs!!.edit().clear() .commit()
+    }
 }

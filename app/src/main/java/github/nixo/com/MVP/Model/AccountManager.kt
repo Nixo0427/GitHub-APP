@@ -1,8 +1,11 @@
 package github.nixo.com.github.Common.Model
 
 
+import android.text.TextUtils
 import android.util.Log
 import com.google.gson.Gson
+import github.nixo.com.Ext.Preference
+import github.nixo.com.github.Ext.AppContext
 import github.nixo.com.github.NetWork.Services.AuthService
 import github.nixo.com.github.NetWork.Services.UserService
 import github.nixo.com.github.NetWork.entitles.AuthorizationReq
@@ -13,6 +16,8 @@ import retrofit2.HttpException
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
+import java.util.prefs.Preferences
+import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 
 
 interface OnAccountStateChangeListener{
@@ -53,10 +58,12 @@ object AccountManager {
     }
 
     private fun notifyLogout() {
-        onAccountStateChangeListeners.forEach { it.onLogout() }
+        onAccountStateChangeListeners.forEach {
+            it.onLogout()
+        }
     }
 
-    fun isLoggedIn(): Boolean = token.isNotEmpty()
+    fun isLoggedIn(): Boolean = TextUtils.isEmpty(token)
 
     fun login() :Observable<Unit> =
             AuthService.createAuthorization(AuthorizationReq())
@@ -72,7 +79,6 @@ object AccountManager {
                     .retryWhen {
                         it.flatMap {
                             if (it is AccountException) {
-
                                 logout()
                             } else {
                                 Observable.error(it)
@@ -101,11 +107,14 @@ object AccountManager {
                     authId = -1
                     token = ""
                     currentUser = null
+                    Preference<Any>(AppContext,"pref",token,"").deleteSpref()
                     notifyLogout()
                 } else {
                     throw HttpException(it)
                 }
             }
+            .observeOn(Schedulers.io())
+            .subscribeOn(AndroidSchedulers.mainThread())
 
 
     class AccountException(val authorizationRsp: AuthorizationRsp) : Exception("Already logged in.")

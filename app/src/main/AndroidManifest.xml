@@ -18,17 +18,16 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="github.nixo.com.MVP.View.auth.LoginActivity"
-            android:label="Login">
-
-        </activity>
-        <activity android:name="github.nixo.com.MVP.View.MainActivity" >
+            android:label="Login"></activity>
+        <activity android:name="github.nixo.com.MVP.View.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="github.nixo.com.MVP.View.auth.RegisterActivity"></activity>
+        <activity android:name="github.nixo.com.MVP.View.auth.RegisterActivity" />
+        <activity android:name="github.nixo.com.MVP.View.auth.EditUserActivity"></activity>
     </application>
 
 </manifest>

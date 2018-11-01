@@ -26,7 +26,7 @@
             <EditText
                 android:id="@+id/editText_serch"
                 android:layout_marginRight="20dp"
-                android:inputType="@null"
+                android:cursorVisible="false"
                 android:background="@drawable/edit_777background"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"

@@ -4,34 +4,36 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="#24292f"
     android:layout_width="300dp"
-    android:layout_height="200dp">
+    android:layout_height="160dp">
     <cn.carbs.android.avatarimageview.library.AppCompatAvatarImageView
         android:id="@+id/nav_img"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:src="@mipmap/default_header"
-        android:layout_centerHorizontal="true"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_marginLeft="20dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
 
         <TextView
             android:layout_marginTop="10dp"
-            android:textSize="20dp"
-            android:gravity="center"
+            android:textSize="18dp"
+            android:gravity="left"
             android:textColor="#fff"
+            android:layout_marginLeft="6dp"
             android:id="@+id/nav_name"
             android:layout_below="@+id/nav_img"
-            android:layout_centerHorizontal="true"
+            android:layout_alignLeft="@+id/nav_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/nav_bio"
-        android:textSize="14dp"
+        android:textSize="12dp"
+        android:layout_marginLeft="6dp"
+        android:layout_alignLeft="@+id/nav_img"
         android:layout_marginTop="5dp"
         android:textColor="#fff"
-        android:gravity="center"
+        android:gravity="left"
         android:layout_below="@+id/nav_name"
-        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
