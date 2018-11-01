@@ -58,39 +58,31 @@ object AccountManager {
     }
 
     private fun notifyLogout() {
-        onAccountStateChangeListeners.forEach {
-            it.onLogout()
+        onAccountStateChangeListeners.forEach{ logout()
+        Log.e("Nixo--LogOut","走了")
         }
     }
 
-    fun isLoggedIn(): Boolean = token.isEmpty()
+    fun isLoggedIn(): Boolean = token.isNotEmpty()
 
-    fun login()  =
+    fun login() =
             AuthService.createAuthorization(AuthorizationReq())
-
                     .doOnNext {
-                        Log.d("Nixo--GetUserInfo--->",it.toString())
-
-                        if (it.token.isEmpty()) {
-                            authId = it.id
-                            throw AccountException(it)
-                        }
+                        if (it.token.isEmpty()) throw AccountException(it)
                     }
                     .retryWhen {
                         it.flatMap {
                             if (it is AccountException) {
-                                logout()
+                                AuthService.deleteAuthorization(it.authorizationRsp.id)
                             } else {
                                 Observable.error(it)
                             }
                         }
                     }
                     .flatMap {
-                        Log.d("Nixo-----获取Token返回值 token+authId","Token:-->"+it.token+"---"+"authId"+"---"+it.id)
                         token = it.token
                         authId = it.id
                         UserService.getAuthenticatedUser()
-
                     }
                     .map {
                         currentUser = it
@@ -100,16 +92,12 @@ object AccountManager {
 
 
     fun logout() = AuthService.deleteAuthorization(authId)
-
             .doOnNext {
-                Log.d("Nixo--deleteAuthorization--->",it.toString())
                 if (it.isSuccessful) {
                     authId = -1
                     token = ""
                     currentUser = null
                     notifyLogout()
-//                    Preference<Any>(AppContext,"pref",token,"").deleteSpref()
-//                    notifyLogout()
                 } else {
                     throw HttpException(it)
                 }

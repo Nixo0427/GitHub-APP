@@ -66,8 +66,7 @@ dependencies {
        <p>原因：原框架使用了  Android 系统的 Html 解析器，对 pre 和 code 没有支持
        框架中使用了修改自 https://github.com/Pixplicity/HtmlCompat 的 Html 解析器
         */
-    api 'com.github.bumptech.glide:glide:4.3.1'
-    kapt 'com.github.bumptech.glide:compiler:4.3.1'
+
     api 'com.android.support:multidex:1.0.1'
     //https://github.com/enbandari/SwipeFinishableActivity
     api 'com.bennyhuo.swipefinishable:swipefinishable:1.0-rc2'
@@ -82,8 +81,13 @@ dependencies {
 
     //Grilde 图片框架
     implementation 'com.github.bumptech.glide:glide:4.8.0'
+    kapt 'com.github.bumptech.glide:compiler:4.8.0'
+    annotationProcessor  'com.github.bumptech.glide:compiler:4.8.0'
     //圆形头像
     api 'cn.carbs.android:AvatarImageView:1.0.4'
     //透明状态栏
-    implementation 'com.yanzhenjie:sofia:1.0.5'
+    api 'com.yanzhenjie:sofia:1.0.5'
+    api 'jp.wasabeef:glide-transformations:2.0.2'
+    // 使用GPU（可以 不用）
+    implementation 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
 }

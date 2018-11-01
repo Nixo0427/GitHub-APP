@@ -8,8 +8,8 @@ class AcceptInterceptor: Interceptor {
         val original = chain.request()
         return chain.proceed(original.newBuilder()
                 .apply {
-                    header("accept","application/vnd.github.v3.full+json,${original.header("accept")}")
-                    Log.e("Nixo--获取User的Header","application/vnd.github.v3.full+json,${original.header("accept")}")
+                    header("accept","application/vnd.github.v3.full+json,${original.header("accept") ?: ""}")
+                    Log.e("Nixo--获取User的Header","application/vnd.github.v3.full+json,${original.header("accept") ?: ""}")
                 }.build())
     }
 }

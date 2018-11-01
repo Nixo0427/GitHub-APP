@@ -6,23 +6,140 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="github.nixo.com.MVP.View.auth.EditUserActivity">
-
-    <LinearLayout
-        android:background="@color/sofia_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="70dp">
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"/>
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp">
+        android:layout_height="match_parent">
+    <ImageView
+        android:background="@drawable/testbg"
+        android:id="@+id/user_bg"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/user_toolbar_bg"
+        android:layout_width="match_parent"
+        android:layout_height="110dp" />
+    <RelativeLayout
+        android:id="@+id/user_bar"
+
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
         <ImageView
-            android:id="@+id/iv_back"
+
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+    <LinearLayout
 
-    </RelativeLayout>
+        android:gravity="center_vertical|center"
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:gravity="center"
+            android:textColor="#bbb"
+            android:textSize="13dp"
+            android:text="Overview"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center"
+            android:textColor="#bbb"
+            android:textSize="13dp"
+            android:text="Repositories"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center"
+            android:textColor="#bbb"
+            android:textSize="13dp"
+            android:text="Star"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center"
+            android:textColor="#bbb"
+            android:textSize="13dp"
+            android:text="Followers"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center"
+            android:textColor="#bbb"
+            android:textSize="13dp"
+            android:text="Followering"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
     </LinearLayout>
+    </RelativeLayout>
+        <View
+
+            android:layout_below="@+id/user_bar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+
+        <RelativeLayout
+            android:layout_below="@+id/user_bar"
+            android:background="@drawable/user_card_background_white"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <cn.carbs.android.avatarimageview.library.AppCompatAvatarImageView
+                android:id="@+id/user_img"
+                android:src="@mipmap/logo2"
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_marginTop="10dp"
+                android:textSize="16dp"
+                android:textColor="#4d4b4b"
+                android:layout_marginLeft="80dp"
+                android:text="Nixo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/user_location"
+                android:layout_marginTop="33dp"
+                android:textSize="13dp"
+                android:textColor="#4d4b4b"
+                android:layout_marginLeft="80dp"
+                android:text="Nixo0427"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/user_bio"
+                android:layout_marginTop="10dp"
+                android:textSize="13dp"
+                android:textColor="#4d4b4b"
+                android:layout_alignLeft="@+id/user_flower"
+                android:maxLines="1"
+                android:text="Nixo0427"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+            android:id="@+id/user_flower"
+            android:layout_marginTop="33dp"
+            android:textSize="13dp"
+            android:textColor="#4d4b4b"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="80dp"
+            android:maxLines="1"
+            android:text="Nixo0427"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

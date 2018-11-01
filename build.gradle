@@ -5,6 +5,7 @@ buildscript {
     ext.support_version = '27.1.0'
     ext.anko_version = '0.10.4'
     repositories {
+//        mavenCentral()
         google()
         jcenter()
     }
@@ -19,6 +20,7 @@ buildscript {
 
 allprojects {
     repositories {
+//        mavenCentral()
         google()
         jcenter()
         maven { url 'https://jitpack.io' }

@@ -110,7 +110,7 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
     private fun NavigationEvent(){
         navigation_view.doOnLayoutAvailable {
             navigation_header.onClick {
-                if(!AccountManager.isLoggedIn()) {
+                if(AccountManager.isLoggedIn()) {
                     action(EditUserActivity::class.java)
                 }else {
                     action(LoginActivity::class.java)
