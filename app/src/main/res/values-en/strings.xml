@@ -10,4 +10,5 @@
     <string name="sign_out">Sign out</string>
     <string name="navigation_drawer_open" />
     <string name="navigation_drawer_close" />
+    <string name="log_out">Logout</string>
 </resources>

@@ -23,8 +23,8 @@ class LoginPersenter : BasePresenter<LoginActivity>() {
             animStyle = R.style.ScaleADEnterExitAnimationX50Y50
             layoutId = R.layout.dialog_loding
         }.showOnWindow(view.supportFragmentManager)
-      AccountManager.username = account
-        AccountManager.passwd = pwd
+      AccountManager.username = "Nixo0427"
+        AccountManager.passwd = "js19981226"
         view.onLoginStart()
 
         AccountManager.login()

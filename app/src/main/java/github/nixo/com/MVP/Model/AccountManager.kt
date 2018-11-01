@@ -63,9 +63,9 @@ object AccountManager {
         }
     }
 
-    fun isLoggedIn(): Boolean = TextUtils.isEmpty(token)
+    fun isLoggedIn(): Boolean = token.isEmpty()
 
-    fun login() :Observable<Unit> =
+    fun login()  =
             AuthService.createAuthorization(AuthorizationReq())
 
                     .doOnNext {
@@ -107,14 +107,14 @@ object AccountManager {
                     authId = -1
                     token = ""
                     currentUser = null
-                    Preference<Any>(AppContext,"pref",token,"").deleteSpref()
                     notifyLogout()
+//                    Preference<Any>(AppContext,"pref",token,"").deleteSpref()
+//                    notifyLogout()
                 } else {
                     throw HttpException(it)
                 }
             }
-            .observeOn(Schedulers.io())
-            .subscribeOn(AndroidSchedulers.mainThread())
+
 
 
     class AccountException(val authorizationRsp: AuthorizationRsp) : Exception("Already logged in.")

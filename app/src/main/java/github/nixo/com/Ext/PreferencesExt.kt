@@ -55,6 +55,9 @@ class Preference<T>(val context: Context, val name: String, val default: T, val 
             }
         }.apply()
     }
+    private fun deletePref(){
+        prefs.edit().clear()
+    }
 
     fun getPref():SharedPreferences = this.getPref()
 

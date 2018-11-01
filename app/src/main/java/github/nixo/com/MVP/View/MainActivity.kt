@@ -42,15 +42,14 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
 
     }
 
-    override fun onDestory() {
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Sofia.with(this@MainActivity).statusBarLightFont()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initToolbar()
-        setNavMenuOnClickListener();
+        setNavMenuOnClickListener()
+        AccountManager.onAccountStateChangeListeners.add(this)
         initNavitaionView()
     }
 
@@ -78,7 +77,12 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
 
     private fun updataNavigationView(user: User) {
         navigation_view.doOnLayoutAvailable {
-            initNavUser(user)
+            if(user == null){
+                return@doOnLayoutAvailable
+            }else{
+                initNavUser(user)
+            }
+
         }
     }
 
@@ -106,7 +110,7 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
     private fun NavigationEvent(){
         navigation_view.doOnLayoutAvailable {
             navigation_header.onClick {
-                if(AccountManager.isLoggedIn()) {
+                if(!AccountManager.isLoggedIn()) {
                     action(EditUserActivity::class.java)
                 }else {
                     action(LoginActivity::class.java)
@@ -123,18 +127,7 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
         nav_bio.text = currentUser?.bio?:""
     }
 
-    private fun clearNavigationView(){
 
-        navigation_view.doOnLayoutAvailable {
-            nav_name.text = "Please Login"
-            nav_bio.text = ""
-            nav_img.setImageResource(R.mipmap.logo2)
-            AccountManager.logout()
-            AccountManager.currentUser = null
-
-        }
-
-    }
 
     override fun onLogin(user: User) {
         updataNavigationView(user)
@@ -143,7 +136,22 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
     override fun onLogout() {
         clearNavigationView()
     }
+    private fun clearNavigationView(){
 
+        navigation_view.doOnLayoutAvailable {
+            nav_name.text = "Please Login"
+            nav_bio.text = ""
+            nav_img.setImageResource(R.mipmap.logo2)
+            AccountManager.logout()
+                    .subscribe({
+                        toast("Logout Success")
+                    },{
+                        toast("${it.message}")
+                    })
+
+        }
+
+    }
     override fun onBackPressed() {
         if(drawer_layout.isDrawerOpen(GravityCompat.START)){
             drawer_layout.closeDrawer(GravityCompat.START)
@@ -152,10 +160,10 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
         }
     }
 
-
-
-    override fun onDestroy() {
+    override fun onDestory() {
         super.onDestroy()
         AccountManager.onAccountStateChangeListeners.remove(this)
     }
+
+
 }
