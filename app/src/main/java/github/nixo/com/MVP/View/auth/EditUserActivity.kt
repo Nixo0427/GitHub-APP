@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.yanzhenjie.sofia.Sofia
 import github.nixo.com.Ext.loadWithGlide
 import github.nixo.com.Ext.setResGosImage
+import github.nixo.com.Ext.setURLGosImage
 import github.nixo.com.MVP.Present.auth.EditUserPresent
 import github.nixo.com.github.Common.Model.AccountManager
 import github.nixo.com.github.Common.Model.User
@@ -26,6 +27,8 @@ class EditUserActivity : BaseActivity<EditUserPresent>() {
         setResGosImage(this,R.drawable.user_bg,user_bg,20,30)
         setResGosImage(this,R.drawable.user_bar,user_toolbar_bg,0,80)
         var user = AccountManager.currentUser!!
+        setURLGosImage(this,user.avatar_url,user_card_bg,20,50)
+
         user_img.loadWithGlide(user.avatar_url,user.name!!.first())
         user_location.text = user.location
         user_bio.text = user.bio
