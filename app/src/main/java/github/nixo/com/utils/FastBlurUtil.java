@@ -2,6 +2,7 @@ package github.nixo.com.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Message;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -10,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
+
 
 public class FastBlurUtil {
     /**
@@ -25,42 +27,70 @@ public class FastBlurUtil {
      */
     public static int IO_BUFFER_SIZE = 2 * 1024;
 
-    public static Bitmap GetUrlBitmap(String url, int scaleRatio,int guss) {
 
-        int blurRadius = guss;//通常设置为8就行。
+    static android.os.Handler handler = new android.os.Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 1:{
+                    Bitmap bitmap = (Bitmap) msg.obj;
+                    break;
+                }
+            }
+        }
+    };
+
+    private static Bitmap scaledBitmap;
+
+
+    public static Bitmap GetUrlBitmap(final String url, int scaleRatio, final int guss) {
+
+        final int blurRadius = guss;//通常设置为8就行。
+        final Bitmap[] blurBitmap = new Bitmap[1];
 
         if (scaleRatio <= 0) {
             scaleRatio = 10;
         }
-
-
-        Bitmap originBitmap = null;
-        InputStream in = null;
-        BufferedOutputStream out = null;
-        try {
-            in = new BufferedInputStream(new URL(url).openStream(), IO_BUFFER_SIZE);
-            final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
-            out = new BufferedOutputStream(dataStream, IO_BUFFER_SIZE);
-            copy(in, out);
-            out.flush();
-            byte[] data = dataStream.toByteArray();
-            originBitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
-
-            Bitmap scaledBitmap = Bitmap.createScaledBitmap(originBitmap,
-                    originBitmap.getWidth() / scaleRatio,
-                    originBitmap.getHeight() / scaleRatio,
-                    false);
-            if(guss == 0){
-                return scaledBitmap;
-            }else {
-                Bitmap blurBitmap = doBlur(scaledBitmap, blurRadius, true);
-                return blurBitmap;
+        final Bitmap[] originBitmap = {null};
+        final int finalScaleRatio = scaleRatio;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    InputStream in = null;
+                    BufferedOutputStream out = null;
+                    in = new BufferedInputStream(new URL(url).openStream(), IO_BUFFER_SIZE);
+                    final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
+                    out = new BufferedOutputStream(dataStream, IO_BUFFER_SIZE);
+                    copy(in, out);
+                    out.flush();
+                    byte[] data = dataStream.toByteArray();
+                    originBitmap[0] = BitmapFactory.decodeByteArray(data, 0, data.length);
+                    scaledBitmap = Bitmap.createScaledBitmap(originBitmap[0],
+                            originBitmap[0].getWidth() / finalScaleRatio,
+                            originBitmap[0].getHeight() / finalScaleRatio,
+                            false);
+                    if(guss == 0){
+                    }else {
+                       blurBitmap[0] =  doBlur(scaledBitmap, blurRadius, true);
+                        Message message = handler.obtainMessage();
+                        message.obj = blurBitmap[0];
+                        message.what = 1;
+                        handler.sendMessage(message);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+        }).start();
+
+
+        return blurBitmap[0];
+
     }
+
+
 
     private static void copy(InputStream in, OutputStream out)
             throws IOException {
@@ -331,4 +361,5 @@ public class FastBlurUtil {
 
         return (bitmap);
     }
+
 }

@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <ImageView
-        android:background="@drawable/testbg"
         android:id="@+id/user_bg"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
@@ -93,6 +92,10 @@
             android:paddingRight="10dp"
             android:layout_width="match_parent"
             android:layout_height="60dp">
+            <ImageView
+                android:id="@+id/user_card_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
             <cn.carbs.android.avatarimageview.library.AppCompatAvatarImageView
                 android:id="@+id/user_img"
                 android:src="@mipmap/logo2"
