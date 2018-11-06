@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.yanzhenjie.sofia.Sofia
+import github.nixo.com.Common.NetWork.Repository.RepositoryService
 import github.nixo.com.Ext.doOnLayoutAvailable
 import github.nixo.com.Ext.loadWithGlide
 import github.nixo.com.Ext.otherwise
@@ -21,6 +22,7 @@ import github.nixo.com.github.Common.Model.AccountManager.currentUser
 import github.nixo.com.github.Common.Model.AccountManager.logout
 import github.nixo.com.github.Common.Model.OnAccountStateChangeListener
 import github.nixo.com.github.Common.Model.User
+import github.nixo.com.github.Ext.logger
 import github.nixo.com.github.NetWork.Services.AuthService
 import github.nixo.com.github.R
 import github.nixo.com.github.mvp.Impl.BaseActivity
@@ -51,6 +53,16 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
         setNavMenuOnClickListener()
         AccountManager.onAccountStateChangeListeners.add(this)
         initNavitaionView()
+
+
+        RepositoryService.listRepositoriesOfUser("Nixo",2)
+                .subscribe({
+                    logger.debug("Nixo仓库返回值"+"\n${it.hasNext}${it.hasPrev}")
+                },{
+                    it.printStackTrace()
+                })
+
+
     }
 
     private fun setNavMenuOnClickListener() {

@@ -1,6 +1,17 @@
 package github.nixo.com.github.Common.Model
 
+import android.os.Parcelable
 import github.nixo.com.github.anno.PoKo
+import kotlinx.android.parcel.Parcelize
+
+
+@PoKo
+@Parcelize
+data class BasicUser(
+        var login: String,
+        var avatar_url: String,
+        var html_url: String
+): Parcelable
 
 
 @PoKo

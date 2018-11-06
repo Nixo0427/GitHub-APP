@@ -108,11 +108,12 @@ public final class RxJavaCallAdapterFactory2 extends CallAdapter.Factory {
     }
 
     if (isCompletable) {
-      return new RxJavaCallAdapter2(Void.class, scheduler, observable,isAsync, false, true, false, true);
+      return new RxJavaCallAdapter2(Void.class, scheduler, observable,isAsync, false, true,false, false, true);
     }
 
     boolean isResult = false;
     boolean isBody = false;
+    boolean isPaging = false;
     Type responseType;
     if (!(returnType instanceof ParameterizedType)) {
       String name = isSingle ? "Single" : "Observable";
@@ -128,6 +129,13 @@ public final class RxJavaCallAdapterFactory2 extends CallAdapter.Factory {
             + " as Response<Foo> or Response<? extends Foo>");
       }
       responseType = getParameterUpperBound(0, (ParameterizedType) observableType);
+    } else if (rawObservableType == GitHubPaging.class) {
+      if (!(observableType instanceof ParameterizedType)) {
+        throw new IllegalStateException("GitHubPaging must be parameterized"
+            + " as Result<Foo> or GitHubPaging<? extends GitHubPaging>");
+      }
+      responseType = observableType;
+      isPaging = true;
     } else if (rawObservableType == Result.class) {
       if (!(observableType instanceof ParameterizedType)) {
         throw new IllegalStateException("Result must be parameterized"
@@ -140,7 +148,7 @@ public final class RxJavaCallAdapterFactory2 extends CallAdapter.Factory {
       isBody = true;
     }
 
-    return new RxJavaCallAdapter2(responseType, scheduler,observable, isAsync, isResult, isBody, isSingle,
+    return new RxJavaCallAdapter2(responseType, scheduler,observable, isAsync, isResult, isBody,isPaging, isSingle,
         false);
   }
 }

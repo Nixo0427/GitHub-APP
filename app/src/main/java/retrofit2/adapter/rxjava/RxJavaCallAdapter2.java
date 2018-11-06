@@ -37,17 +37,20 @@ final class RxJavaCallAdapter2<R> implements CallAdapter<R, Object> {
   private final boolean isAsync;
   private final boolean isResult;
   private final boolean isBody;
+  private final boolean isPaging;
+
   private final boolean isSingle;
   private final boolean isCompletable;
 
   RxJavaCallAdapter2(Type responseType, @Nullable Scheduler scheduler,@Nullable Scheduler observableOn, boolean isAsync,
-                     boolean isResult, boolean isBody, boolean isSingle, boolean isCompletable) {
+                     boolean isResult, boolean isBody,boolean isPaging, boolean isSingle, boolean isCompletable) {
     this.responseType = responseType;
     this.scheduler = scheduler;
     this.observableOn = observableOn;
     this.isAsync = isAsync;
     this.isResult = isResult;
     this.isBody = isBody;
+    this.isPaging = isPaging;
     this.isSingle = isSingle;
     this.isCompletable = isCompletable;
   }
@@ -66,6 +69,9 @@ final class RxJavaCallAdapter2<R> implements CallAdapter<R, Object> {
       func = new ResultOnSubscribe<>(callFunc);
     } else if (isBody) {
       func = new BodyOnSubscribe<>(callFunc);
+    }else if (isPaging){
+      // TODO: 2018/11/6
+      func = new GitHubListOnSubscribe<>(callFunc);
     } else {
       func = callFunc;
     }
