@@ -58,7 +58,8 @@ public class FastBlurUtil {
             @Override
             public void run() {
                 try {
-                    InputStream in = null;
+                    InputStream in = null     ;
+
                     BufferedOutputStream out = null;
                     in = new BufferedInputStream(new URL(url).openStream(), IO_BUFFER_SIZE);
                     final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
