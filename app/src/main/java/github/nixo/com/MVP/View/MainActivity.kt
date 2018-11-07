@@ -55,13 +55,7 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
         initNavitaionView()
 
 
-        RepositoryService.listRepositoriesOfUser("Nixo0427",1)
-                .subscribe({
-                    logger.debug("Nixo仓库返回值"+"\n${it.hasNext}${it.hasPrev}")
-                    Log.e("Nixo仓库返回值","\n${it.hasNext}${it.hasPrev}")
-                },{
-                    it.printStackTrace()
-                })
+
 
 
     }

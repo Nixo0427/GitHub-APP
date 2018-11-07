@@ -9,81 +9,96 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/user_bg"
-        android:scaleType="centerCrop"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    <ImageView
-        android:id="@+id/user_toolbar_bg"
-        android:layout_width="match_parent"
-        android:layout_height="110dp" />
-    <RelativeLayout
-        android:id="@+id/user_bar"
-
-        android:layout_width="match_parent"
-        android:layout_height="70dp">
         <ImageView
+            android:id="@+id/user_bg"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/user_toolbar_bg"
+            android:layout_width="match_parent"
+            android:layout_height="110dp" />
+        <RelativeLayout
+            android:id="@+id/user_bar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioGroup
+                android:orientation="horizontal"
+                android:gravity="center_vertical|center"
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp">
 
+                <RadioButton
+                    android:id="@+id/rb_overview"
+                    android:gravity="center"
+                    android:textColor="@drawable/radio_bg"
+                    android:button="@null"
+                    android:textSize="13dp"
+                    android:text="Overview"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_repositories"
+                    android:gravity="center"
+                    android:textColor="@drawable/radio_bg"
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    <LinearLayout
-
-        android:gravity="center_vertical|center"
-        android:layout_marginTop="25dp"
-        android:layout_width="match_parent"
-        android:layout_height="45dp">
-
-        <TextView
-            android:gravity="center"
-            android:textColor="#bbb"
-            android:textSize="13dp"
-            android:text="Overview"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:gravity="center"
-            android:textColor="#bbb"
-            android:textSize="13dp"
-            android:text="Repositories"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:gravity="center"
-            android:textColor="#bbb"
-            android:textSize="13dp"
-            android:text="Star"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:gravity="center"
-            android:textColor="#bbb"
-            android:textSize="13dp"
-            android:text="Followers"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:gravity="center"
-            android:textColor="#bbb"
-            android:textSize="13dp"
-            android:text="Followering"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    </RelativeLayout>
+                    android:button="@null"
+                    android:textSize="13dp"
+                    android:text="Repositories"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:gravity="center"
+                    android:textColor="@drawable/radio_bg"
+                    android:id="@+id/rb_start"
+                    android:button="@null"
+                    android:textSize="13dp"
+                    android:text="Star"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:gravity="center"
+                    android:textColor="@drawable/radio_bg"
+                    android:id="@+id/rb_followers"
+                    android:textSize="13dp"
+                    android:button="@null"
+                    android:text="Followers"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_followering"
+                    android:gravity="center"
+                    android:textColor="@drawable/radio_bg"
+                    android:button="@null"
+                    android:textSize="13dp"
+                    android:text="Followering"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+        </RelativeLayout>
         <View
 
             android:layout_below="@+id/user_bar"
             android:layout_width="match_parent"
             android:layout_height="40dp"/>
+        <android.support.v7.widget.RecyclerView
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/user_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+        </android.support.v7.widget.RecyclerView>
         <RelativeLayout
+            android:id="@+id/user_card"
             android:layout_below="@+id/user_bar"
             android:background="@drawable/user_card_background_white"
             android:layout_marginLeft="30dp"
@@ -133,16 +148,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
-            android:id="@+id/user_flower"
-            android:layout_marginTop="33dp"
-            android:textSize="13dp"
-            android:textColor="#4d4b4b"
+                android:id="@+id/user_flower"
+                android:layout_marginTop="33dp"
+                android:textSize="13dp"
+                android:textColor="#4d4b4b"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="80dp"
-            android:maxLines="1"
-            android:text="Nixo0427"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+                android:maxLines="1"
+                android:text="Nixo0427"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </RelativeLayout>
     </RelativeLayout>
+
+
+
 </android.support.constraint.ConstraintLayout>
