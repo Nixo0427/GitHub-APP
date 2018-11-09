@@ -2,16 +2,13 @@ package github.nixo.com.Ext
 
 
 import android.content.Context
-import android.content.res.Resources
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.widget.ImageView
 import com.bumptech.glide.request.RequestOptions
 import cn.carbs.android.avatarimageview.library.AppCompatAvatarImageView
+import cn.carbs.android.avatarimageview.library.AppSquareAvatarImageView
 import com.bumptech.glide.Glide
-import github.nixo.com.github.R
 import github.nixo.com.utils.FastBlurUtil
-import jp.wasabeef.glide.transformations.BlurTransformation
 
 
 /**
@@ -19,6 +16,16 @@ import jp.wasabeef.glide.transformations.BlurTransformation
  */
 
 fun AppCompatAvatarImageView.loadWithGlide(url: String, textPlaceHolder: Char, requestOptions: RequestOptions = RequestOptions()){
+    textPlaceHolder.toString().let {
+        setTextAndColorSeed(it.toUpperCase(), it.hashCode().toString())
+    }
+
+    Glide.with(this.context)
+            .load(url)
+            .apply(requestOptions)
+            .into(this)
+}
+fun AppSquareAvatarImageView.loadWithGlide(url: String, textPlaceHolder: Char, requestOptions: RequestOptions = RequestOptions()){
     textPlaceHolder.toString().let {
         setTextAndColorSeed(it.toUpperCase(), it.hashCode().toString())
     }

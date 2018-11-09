@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:paddingRight="5dp"
+    android:paddingLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:background="@drawable/repository_bg"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+
+
+    <cn.carbs.android.avatarimageview.library.AppCompatAvatarImageView
+        android:id="@+id/item_iv_repository_img"
+        android:layout_marginLeft="20dp"
+        android:layout_centerVertical="true"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+    <TextView
+        android:layout_marginLeft="120dp"
+        android:id="@+id/item_tv_repository_titile"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="10dp"
+        android:text="Android-Kotlin-Ext"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_alignLeft="@+id/item_tv_repository_titile"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/item_tv_repository_titile"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/item_tv_repository_languge"
+            android:textColor="@color/colorAccent"
+            android:text="Kotlin"
+            android:layout_below="@+id/item_tv_repository_titile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_marginLeft="20dp"
+            android:id="@+id/item_ll_repository_fork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@mipmap/fork"
+                android:layout_marginTop="3dp"
+                android:scaleType="centerInside"
+                android:layout_width="15dp"
+                android:layout_height="13dp" />
+            <TextView
+                android:id="@+id/item_tv_repository_fork"
+                android:text="20"
+                android:textColor="@color/colorAccent"
+                android:textSize="14dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <TextView
+
+            android:id="@+id/item_tv_repository_update"
+            android:textSize="14sp"
+            android:textColor="@color/colorAccent"
+            android:layout_marginLeft="20dp"
+            android:maxLines="1"
+            android:text="2017-12-22T12:45:50Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</RelativeLayout>

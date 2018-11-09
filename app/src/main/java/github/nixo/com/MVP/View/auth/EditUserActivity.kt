@@ -1,12 +1,15 @@
 package github.nixo.com.MVP.View.auth
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import com.yanzhenjie.sofia.Sofia
 import github.nixo.com.Common.NetWork.Repository.Repository
 import github.nixo.com.Ext.loadWithGlide
 import github.nixo.com.Ext.setResGosImage
 import github.nixo.com.Ext.setURLGosImage
 import github.nixo.com.MVP.Present.auth.EditUserPresent
+import github.nixo.com.MVP.View.adapter.RepositoriesAdapter
 import github.nixo.com.github.Common.Model.AccountManager
 import github.nixo.com.github.Common.Model.User
 import github.nixo.com.github.R
@@ -25,7 +28,6 @@ class EditUserActivity : BaseActivity<EditUserPresent>() {
         super.onCreate(savedInstanceState)
         Sofia.with(this@EditUserActivity).statusBarLightFont()
         setContentView(R.layout.activity_edit_user)
-
         initTest()
         initOnClick()
     }
@@ -43,11 +45,17 @@ class EditUserActivity : BaseActivity<EditUserPresent>() {
 
 
     fun initOnClick(){
-        tv_repositories.onClick { presenter.onRepository(user.login,page) }
+        rb_repositories.onClick { presenter.onRepository(user.login,page) }
     }
 
     fun initReposition(list :GitHubPaging<Repository>?){
-
+        Log.e("Nixo---adapter数据","${list!!.size}")
+        var repositoriesAdapter = RepositoriesAdapter(this@EditUserActivity)
+        var manager = LinearLayoutManager(this@EditUserActivity)
+        repositoriesAdapter.setDataList(list)
+        rv_baseRecylerView.layoutManager = manager
+        rv_baseRecylerView.adapter = repositoriesAdapter
+        repositoriesAdapter.notifyDataSetChanged()
     }
 
 
