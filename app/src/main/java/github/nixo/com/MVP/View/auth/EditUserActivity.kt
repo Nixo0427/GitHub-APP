@@ -33,7 +33,7 @@ class EditUserActivity : BaseActivity<EditUserPresent>() {
     }
 
     fun initTest(){
-        setResGosImage(this,R.drawable.user_bg,user_bg,20,30)
+//        setResGosImage(this,R.drawable.user_bg,user_bg,20,30)
         setResGosImage(this,R.drawable.user_bar,user_toolbar_bg,0,80)
 //        setURLGosImage(this,user.avatar_url,user_card_bg,20,50)
 

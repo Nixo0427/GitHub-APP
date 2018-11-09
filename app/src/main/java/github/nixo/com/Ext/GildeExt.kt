@@ -19,6 +19,9 @@ fun AppCompatAvatarImageView.loadWithGlide(url: String, textPlaceHolder: Char, r
     textPlaceHolder.toString().let {
         setTextAndColorSeed(it.toUpperCase(), it.hashCode().toString())
     }
+//    "Kotlin".toString().let {
+//        setTextAndColorSeed(it.toUpperCase(), it.hashCode().toString())
+//    }
 
     Glide.with(this.context)
             .load(url)
