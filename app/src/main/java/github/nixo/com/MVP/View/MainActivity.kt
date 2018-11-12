@@ -1,29 +1,21 @@
 package github.nixo.com.MVP.View
 
-import android.os.Build
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.text.InputType
 import android.util.Log
 import android.view.Menu
-import android.view.MenuItem
 import com.yanzhenjie.sofia.Sofia
-import github.nixo.com.Common.NetWork.Repository.RepositoryService
 import github.nixo.com.Ext.doOnLayoutAvailable
 import github.nixo.com.Ext.loadWithGlide
-import github.nixo.com.Ext.otherwise
-import github.nixo.com.Ext.yes
 import github.nixo.com.MVP.Present.MainPresent
-import github.nixo.com.MVP.View.auth.EditUserActivity
+import github.nixo.com.MVP.View.auth.UserActivity
 import github.nixo.com.MVP.View.auth.LoginActivity
 import github.nixo.com.github.Common.Model.AccountManager
 import github.nixo.com.github.Common.Model.AccountManager.currentUser
-import github.nixo.com.github.Common.Model.AccountManager.logout
 import github.nixo.com.github.Common.Model.OnAccountStateChangeListener
 import github.nixo.com.github.Common.Model.User
-import github.nixo.com.github.Ext.logger
-import github.nixo.com.github.NetWork.Services.AuthService
 import github.nixo.com.github.R
 import github.nixo.com.github.mvp.Impl.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -118,7 +110,7 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
         navigation_view.doOnLayoutAvailable {
             navigation_header.onClick {
                 if(AccountManager.isLoggedIn()) {
-                    action(EditUserActivity::class.java)
+                    action(UserActivity::class.java)
                 }else {
                     action(LoginActivity::class.java)
                 }

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="github.nixo.com.MVP.View.auth.EditUserActivity">
+    tools:context="github.nixo.com.MVP.View.auth.UserActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -91,14 +91,28 @@
             android:layout_below="@+id/user_bar"
             android:layout_width="match_parent"
             android:layout_height="40dp"/>
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/srl_user_repository"
+        android:layout_marginTop="130dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_baseRecylerView"
             android:gravity="center_horizontal"
             android:layout_below="@+id/user_card"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"/>
+        <com.airbnb.lottie.LottieAnimationView
+            app:lottie_fileName="more.json"
+            app:lottie_imageAssetsFolder="/"
+            app:lottie_autoPlay="true"
+            android:layout_gravity="center"
+            app:lottie_loop="true"
 
-        </android.support.v7.widget.RecyclerView>
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
         <RelativeLayout
             android:id="@+id/user_card"
             android:layout_below="@+id/user_bar"
