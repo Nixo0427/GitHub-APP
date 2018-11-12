@@ -143,7 +143,12 @@ public final class RxJavaCallAdapterFactory2 extends CallAdapter.Factory {
       }
       responseType = getParameterUpperBound(0, (ParameterizedType) observableType);
       isResult = true;
-    } else {
+    }else if (PagingWrapper.class.isAssignableFrom(rawObservableType)){
+      //如果rawObservableType是PagingWrapper的子类的话，我们就对RxJava添加对PagingWrapper的支持
+      responseType = observableType;
+      isPaging = true;
+
+    }else {
       responseType = observableType;
       isBody = true;
     }

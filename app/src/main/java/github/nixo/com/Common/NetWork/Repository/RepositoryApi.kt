@@ -11,7 +11,8 @@ interface RepositoryApi{
     @GET("/users/{owner}/repos?type=all")
     fun listRepositoriesOfUser(@Path("owner") owner: String, @Query("page") page: Int = 1, @Query("per_page") per_page: Int = 20): rx.Observable<GitHubPaging<Repository>>
 
-
+    @GET("/search/repositories?order=desc&sort=updated")
+    fun allRepositories(@Query("page") page: Int = 1, @Query("q") q: String, @Query("per_page") per_page: Int = 20): rx.Observable<SearchRepositories>
 
 }
 object RepositoryService : RepositoryApi by retrofit.create(RepositoryApi::class.java)

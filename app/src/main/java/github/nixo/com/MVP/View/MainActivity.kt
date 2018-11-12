@@ -7,6 +7,7 @@ import android.text.InputType
 import android.util.Log
 import android.view.Menu
 import com.yanzhenjie.sofia.Sofia
+import github.nixo.com.Common.NetWork.Repository.RepositoryService
 import github.nixo.com.Ext.doOnLayoutAvailable
 import github.nixo.com.Ext.loadWithGlide
 import github.nixo.com.MVP.Present.MainPresent
@@ -27,6 +28,8 @@ import org.jetbrains.anko.sdk15.listeners.onClick
 import org.jetbrains.anko.support.v4.drawerListener
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.yesButton
+import java.text.DateFormat
+import java.util.*
 
 class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener{
 
@@ -46,10 +49,20 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
         AccountManager.onAccountStateChangeListeners.add(this)
         initNavitaionView()
 
+        initAllRepository()
 
 
 
 
+    }
+
+    private fun initAllRepository() {
+        RepositoryService.allRepositories(1,"pushed:<"+android.text.format.DateFormat.format("yyyy-MM-dd",Date()))
+                .subscribe({
+                    Log.e("Nixo仓库返回值","\n${it.paging.hasNext}${it.paging.hasPrev}")
+                },{
+                    it.printStackTrace()
+                })
     }
 
     private fun setNavMenuOnClickListener() {

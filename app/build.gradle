@@ -2,8 +2,21 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-noarg'
 
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+    androidExtensions {
+        experimental = true
+    }
+}
 
+noArg {
+    //noArg可以在我们使用lazy的时候或者其他时候，当对象没有经过构造方法初始化的时候，noarg会帮我们自动生成一个空的构造方法保证方法的初始化
+    annotations "github.nixo.com.github.anno.PoKo"
+}
 
 android {
     compileSdkVersion 28
@@ -24,10 +37,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
-androidExtensions {
-    experimental = true
-}
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')

@@ -51,8 +51,11 @@ final class GitHubListOnSubscribe<GitHubPagingBody> implements OnSubscribe<GitHu
         GitHubPaging<?> paging = null;
         if(response.body() instanceof GitHubPaging<?>){
           paging = (GitHubPaging<?>) response.body();
-        }else{
-          new IllegalAccessException("接收数据不是GithubPaging<?>类型");
+        }else if (response.body() instanceof  PagingWrapper){
+            paging = ((PagingWrapper) response.body()).getPaging();
+          }else{
+            throw new IllegalArgumentException("接收数据不是GithubPaging<?>类型 " +
+                    ":" + response.body().getClass());
         }
         String links = response.headers().get("link");
         if(links != null){
