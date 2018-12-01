@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import cn.carbs.android.avatarimageview.library.AppCompatAvatarImageView
 import cn.carbs.android.avatarimageview.library.AppSquareAvatarImageView
+import cn.carbs.android.avatarimageview.library.SquareAvatarImageView
 import github.nixo.com.Common.NetWork.Repository.Repository
 import github.nixo.com.Ext.loadWithGlide
 import github.nixo.com.Ext.otherwise
@@ -31,9 +32,24 @@ class RepositoriesAdapter(mContext : Context,startType:String? ) : ListBaseAdapt
         var fork = holder.getView<TextView>(R.id.item_tv_repository_fork)
         var update = holder.getView<TextView>(R.id.item_tv_repository_update)
         var img = holder.getView<AppCompatAvatarImageView>(R.id.item_iv_repository_img)
+        var userImg = holder.getView<AppSquareAvatarImageView>(R.id.item_iv_repository_user_img)
 
+//
         Log.e("Nixo---Adapter拿没拿到View","${title==null}")
         var bean= mDataList.get(position)!!
+        var date  = bean.updated_at
+
+        val source =  bean.updated_at //原文本
+        val pattern = """[0-9:-]+""" //正则式
+
+        //使用kotlin方法打印出匹配出的内容
+        var toList : List<MatchResult> = Regex(pattern).findAll(source).toList()
+        var day  = toList.get(0).value
+        var time  = toList.get(1).value
+
+
+
+
 
         (bean.fork).yes {
             forkLayout.visibility = View.VISIBLE
@@ -43,13 +59,17 @@ class RepositoriesAdapter(mContext : Context,startType:String? ) : ListBaseAdapt
             forkLayout.visibility = View.GONE
         }
         TextUtils.isEmpty(startType).yes {
-            img.loadWithGlide(bean.owner.avatar_url,bean.owner.login.first())
+            img.visibility = View.GONE
+            userImg.visibility = View.VISIBLE
+            userImg.loadWithGlide(bean.owner.avatar_url,bean.owner.login.first())
         }.otherwise {
+            userImg.visibility = View.GONE
+            img.visibility = View.VISIBLE
             img.loadWithGlide("",bean.language!!.first())
         }
         title.text = bean.full_name
-        language.text = bean.language
-        update.text = bean.updated_at
+        language.text = if(TextUtils.isEmpty(bean.language)) "Unknown" else bean.language
+        update.text = "updated for:   "+day+"  "+time
     }
 
 }
