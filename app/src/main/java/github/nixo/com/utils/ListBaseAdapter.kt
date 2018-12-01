@@ -66,6 +66,7 @@ abstract class ListBaseAdapter<T>(protected var mContext: Context) : RecyclerVie
         if (this.mDataList.addAll(list)) {
             notifyItemRangeInserted(lastIndex, list.size)
         }
+        notifyDataSetChanged()
     }
 
     fun remove(position: Int) {

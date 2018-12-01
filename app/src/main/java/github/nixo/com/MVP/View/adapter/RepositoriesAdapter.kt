@@ -1,6 +1,7 @@
 package github.nixo.com.MVP.View.adapter
 
 import android.content.Context
+import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
@@ -15,11 +16,12 @@ import github.nixo.com.github.R
 import github.nixo.com.utils.ListBaseAdapter
 import github.nixo.com.utils.SuperViewHolder
 
-class RepositoriesAdapter(mContext : Context ) : ListBaseAdapter<Repository?>(mContext) {
+class RepositoriesAdapter(mContext : Context,startType:String? ) : ListBaseAdapter<Repository?>(mContext) {
 
     override val layoutId: Int
         get() =R.layout.item_repository
-    
+
+    val startType = startType
 //    var mDataList :: GitHubPaging<Repository>? = list
     
     override fun onBindItemHolder(holder: SuperViewHolder, position: Int) {
@@ -40,7 +42,11 @@ class RepositoriesAdapter(mContext : Context ) : ListBaseAdapter<Repository?>(mC
             fork.text = ""
             forkLayout.visibility = View.GONE
         }
-        img.loadWithGlide("",bean.language!!.first())
+        TextUtils.isEmpty(startType).yes {
+            img.loadWithGlide(bean.owner.avatar_url,bean.owner.login.first())
+        }.otherwise {
+            img.loadWithGlide("",bean.language!!.first())
+        }
         title.text = bean.full_name
         language.text = bean.language
         update.text = bean.updated_at

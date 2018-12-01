@@ -8,21 +8,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#24292f"
     tools:context="github.nixo.com.MVP.View.MainActivity">
+
 <android.support.v4.widget.DrawerLayout
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
    >
 
-    <RelativeLayout
+    <LinearLayout
        android:background="#eee"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <include layout="@layout/toolbar_layout"/>
 
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/srl_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_all_reposition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <com.airbnb.lottie.LottieAnimationView
+                app:lottie_fileName="more.json"
+                app:lottie_imageAssetsFolder="/"
+                app:lottie_autoPlay="true"
+                android:layout_gravity="center"
+                app:lottie_loop="true"
 
-    </RelativeLayout>
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </LinearLayout>
 
 
     <android.support.design.widget.NavigationView
@@ -37,4 +55,5 @@
     </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>
+
 </LinearLayout>

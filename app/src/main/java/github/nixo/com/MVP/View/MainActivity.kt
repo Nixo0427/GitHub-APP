@@ -3,14 +3,24 @@ package github.nixo.com.MVP.View
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.widget.LinearLayoutManager
 import android.text.InputType
 import android.util.Log
 import android.view.Menu
+import android.widget.LinearLayout
+import com.scwang.smartrefresh.layout.SmartRefreshLayout
+import com.scwang.smartrefresh.layout.api.RefreshLayout
+import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import com.yanzhenjie.sofia.Sofia
+import github.nixo.com.Common.NetWork.Repository.Repository
 import github.nixo.com.Common.NetWork.Repository.RepositoryService
 import github.nixo.com.Ext.doOnLayoutAvailable
 import github.nixo.com.Ext.loadWithGlide
+import github.nixo.com.Ext.otherwise
+import github.nixo.com.Ext.yes
 import github.nixo.com.MVP.Present.MainPresent
+import github.nixo.com.MVP.View.adapter.RepositoriesAdapter
 import github.nixo.com.MVP.View.auth.UserActivity
 import github.nixo.com.MVP.View.auth.LoginActivity
 import github.nixo.com.github.Common.Model.AccountManager
@@ -31,9 +41,14 @@ import org.jetbrains.anko.yesButton
 import java.text.DateFormat
 import java.util.*
 
-class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener{
+class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener ,OnRefreshListener,OnLoadmoreListener{
 
 
+
+    var adapter :RepositoriesAdapter? = null
+    var layoutManager: LinearLayoutManager? = null
+    var isFirst = true
+    var page = 1
 
     override fun onViewStateResotre(saveInstanceState: Bundle?) {
 
@@ -47,23 +62,52 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
         initToolbar()
         setNavMenuOnClickListener()
         AccountManager.onAccountStateChangeListeners.add(this)
+        srl_main!!.setOnRefreshListener(this)
+        srl_main!!.setOnLoadmoreListener(this)
         initNavitaionView()
-
-        initAllRepository()
+        initRecyclerView()
 
 
 
 
     }
 
-    private fun initAllRepository() {
-        RepositoryService.allRepositories(1,"pushed:<"+android.text.format.DateFormat.format("yyyy-MM-dd",Date()))
-                .subscribe({
-                    Log.e("Nixo仓库返回值","\n${it.paging.hasNext}${it.paging.hasPrev}")
-                },{
-                    it.printStackTrace()
-                })
+    override fun onResume() {
+        super.onResume()
+        presenter.getPublicResitorestry(page)
     }
+
+    private fun initRecyclerView() {
+        adapter  =  RepositoriesAdapter(this@MainActivity,"")
+        layoutManager =  LinearLayoutManager(this@MainActivity)
+        rv_all_reposition.adapter = adapter
+        rv_all_reposition.layoutManager = layoutManager
+    }
+
+    public fun initAllRepository(response : List<Repository>) {
+        isFirst.yes {
+            adapter!!.setDataList(response)
+        }.otherwise {
+            adapter!!.addAll(response)
+        }
+    }
+
+
+    override fun onRefresh(refreshlayout: RefreshLayout?) {
+        srl_main!!.finishRefresh()
+        page = 1
+        isFirst = true
+        presenter.getPublicResitorestry(page)
+    }
+
+    override fun onLoadmore(refreshlayout: RefreshLayout?) {
+        srl_main!!.finishLoadmore()
+        page++
+        isFirst = false
+        presenter.getPublicResitorestry(page)
+    }
+
+
 
     private fun setNavMenuOnClickListener() {
         navigation_view.setNavigationItemSelectedListener {
@@ -83,9 +127,6 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
         }
     }
 
-    private fun initEditText() {
-        editText_serch.inputType = InputType.TYPE_CLASS_TEXT
-    }
 
     private fun updataNavigationView(user: User) {
         navigation_view.doOnLayoutAvailable {
@@ -109,7 +150,6 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
     private fun initNavitaionView() {
         AccountManager.currentUser?.let(::updataNavigationView)?:clearNavigationView()
         NavigationEvent()
-        initEditText()
     }
 
     private fun initToolbar() {

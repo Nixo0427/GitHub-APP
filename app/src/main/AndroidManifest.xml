@@ -21,7 +21,9 @@
             android:label="Login">
 
         </activity>
-        <activity android:name="github.nixo.com.MVP.View.MainActivity">
+        <activity android:name="github.nixo.com.MVP.View.MainActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

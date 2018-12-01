@@ -16,7 +16,11 @@ import github.nixo.com.utils.FastBlurUtil
  */
 
 fun AppCompatAvatarImageView.loadWithGlide(url: String, textPlaceHolder: Char, requestOptions: RequestOptions = RequestOptions()){
+    (textPlaceHolder == null).yes{
+        return
+    }
     textPlaceHolder.toString().let {
+
         setTextAndColorSeed(it.toUpperCase(), it.hashCode().toString())
     }
 //    "Kotlin".toString().let {

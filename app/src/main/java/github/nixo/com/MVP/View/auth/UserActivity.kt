@@ -16,6 +16,7 @@ import github.nixo.com.github.Common.Model.AccountManager
 import github.nixo.com.github.R
 import github.nixo.com.github.mvp.Impl.BaseActivity
 import kotlinx.android.synthetic.main.activity_edit_user.*
+import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.sdk15.listeners.onClick
 import retrofit2.adapter.rxjava.GitHubPaging
 
@@ -33,7 +34,7 @@ class UserActivity : BaseActivity<EditUserPresent>(),OnRefreshListener,OnLoadmor
         super.onCreate(savedInstanceState)
         Sofia.with(this@UserActivity).statusBarLightFont()
         setContentView(R.layout.activity_edit_user)
-        repositoriesAdapter = RepositoriesAdapter(this@UserActivity)
+        repositoriesAdapter = RepositoriesAdapter(this@UserActivity,"user")
         manager = LinearLayoutManager(this@UserActivity)
         rv_baseRecylerView.layoutManager = manager
         rv_baseRecylerView.adapter = repositoriesAdapter
@@ -45,7 +46,7 @@ class UserActivity : BaseActivity<EditUserPresent>(),OnRefreshListener,OnLoadmor
 
     fun initTest(){
 //        setResGosImage(this,R.drawable.user_bg,user_bg,20,30)
-        setResGosImage(this,R.drawable.user_bar,user_toolbar_bg,0,80)
+        setResGosImage(this,R.mipmap.default_header,user_toolbar_bg,0,80)
 //        setURLGosImage(this,user.avatar_url,user_card_bg,20,50)
 
         user_img.loadWithGlide(user.avatar_url,user.name!!.first())
@@ -78,6 +79,7 @@ class UserActivity : BaseActivity<EditUserPresent>(),OnRefreshListener,OnLoadmor
     override fun onDestory() {
     }
     override fun onRefresh(refreshlayout: RefreshLayout?) {
+        refreshlayout!!.finishRefresh()
         page = 1
         isLoadmore = false
         when(status){
