@@ -20,26 +20,17 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.sdk15.listeners.onClick
 import retrofit2.adapter.rxjava.GitHubPaging
 
-class UserActivity : BaseActivity<EditUserPresent>(),OnRefreshListener,OnLoadmoreListener {
+class UserActivity : BaseActivity<EditUserPresent>() {
 
 
     val user = AccountManager.currentUser!!
-    var page = 1
-    var repositoriesAdapter :RepositoriesAdapter? = null
-    var manager :LinearLayoutManager? = null
-    var status = 1
-    var isLoadmore = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Sofia.with(this@UserActivity).statusBarLightFont()
         setContentView(R.layout.activity_edit_user)
-        repositoriesAdapter = RepositoriesAdapter(this@UserActivity,"user")
-        manager = LinearLayoutManager(this@UserActivity)
-        rv_baseRecylerView.layoutManager = manager
-        rv_baseRecylerView.adapter = repositoriesAdapter
-        srl_user_repository.setOnLoadmoreListener(this)
-        srl_user_repository.setOnRefreshListener(this)
+
         initTest()
         initOnClick()
     }
@@ -58,19 +49,13 @@ class UserActivity : BaseActivity<EditUserPresent>(),OnRefreshListener,OnLoadmor
 
     fun initOnClick(){
         rb_repositories.onClick {
-            status = 2
-            presenter.onRepository(user.login,page) }
-    }
+            //打开RepositoryFragment
 
-    fun initReposition(list :GitHubPaging<Repository>?){
-        Log.e("Nixo---adapter数据","${list!!.size}")
-        if(isLoadmore){
-            repositoriesAdapter!!.addAll(list)
-        }else{
-            repositoriesAdapter!!.setDataList(list)
+//            presenter.onRepository(user.login,page)
         }
-
     }
+
+
 
 
     override fun onViewStateResotre(saveInstanceState: Bundle?) {
@@ -78,27 +63,5 @@ class UserActivity : BaseActivity<EditUserPresent>(),OnRefreshListener,OnLoadmor
 
     override fun onDestory() {
     }
-    override fun onRefresh(refreshlayout: RefreshLayout?) {
-        refreshlayout!!.finishRefresh()
-        page = 1
-        isLoadmore = false
-        when(status){
-            1->{}
-            2->{ presenter.onRepository(user.login,page)}
-        }
-        refreshlayout!!.finishRefresh()
 
-    }
-
-    override fun onLoadmore(refreshlayout: RefreshLayout?) {
-        refreshlayout!!.finishLoadmore()
-        page++
-
-        isLoadmore = true
-        when(status){
-            1->{}
-            2->{ presenter.onRepository(user.login,page)}
-        }
-
-    }
 }

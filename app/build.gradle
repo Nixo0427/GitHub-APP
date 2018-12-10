@@ -108,4 +108,15 @@ dependencies {
     //分页工具
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4'
     api 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4'
+
+
+    //Test Paging
+    def paging_version = "1.0.0"
+
+    implementation "android.arch.paging:runtime:$paging_version"
+
+    // alternatively - without Android dependencies for testing
+    testImplementation "android.arch.paging:common:$paging_version"
+
+
 }
