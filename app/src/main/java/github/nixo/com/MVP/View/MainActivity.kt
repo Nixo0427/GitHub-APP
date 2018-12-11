@@ -38,6 +38,7 @@ import org.jetbrains.anko.sdk15.listeners.onClick
 import org.jetbrains.anko.support.v4.drawerListener
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.yesButton
+import java.lang.NullPointerException
 import java.text.DateFormat
 import java.util.*
 
@@ -122,9 +123,20 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
                     }.show()
                     true
                 }
-                else->{true}
+                R.id.nav_menu_mine -> {
+                    if(AccountManager.isLoggedIn()) {
+                        action(UserActivity::class.java)
+                    }else {
+                        action(LoginActivity::class.java)
+                    }
+                    true
+                }
+                else -> {
+                    true
+                }
             }
         }
+
     }
 
 

@@ -1,58 +1,71 @@
 package github.nixo.com.github.mvp.Impl
 
-import android.app.Activity
 import android.content.Intent
-import android.content.res.Configuration
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
+import com.tencent.bugly.crashreport.CrashReport
+import github.nixo.com.github.Ext.AppContext
 import github.nixo.com.github.mvp.IPresenter
 import github.nixo.com.github.mvp.IView
+import java.lang.reflect.ParameterizedType
+import java.lang.reflect.Type
 import kotlin.coroutines.experimental.buildSequence
 import kotlin.reflect.KClass
 import kotlin.reflect.full.isSubclassOf
 import kotlin.reflect.full.primaryConstructor
 import kotlin.reflect.jvm.jvmErasure
 
-abstract class BaseActivity<out P : BasePresenter<BaseActivity<P>>> :IView<P> , AppCompatActivity() {
+abstract class BaseActivity<out P : BasePresenter<BaseActivity<P>>> : IView<P>, AppCompatActivity() {
     override val presenter : P
 
     init {
         presenter = createPresenter()
         presenter.view = this
+        CrashReport.initCrashReport(AppContext,"c11b3fae00",false)
     }
 
-    fun createPresenter(): P {
+    private fun createPresenterKt(): P {
         buildSequence {
-            var thisClass : KClass<*> = this@BaseActivity::class
-            while (true){
+            var thisClass: KClass<*> = this@BaseActivity::class
+            while (true) {
                 yield(thisClass.supertypes)
-                thisClass = thisClass.supertypes.firstOrNull()?.jvmErasure?:break
+                thisClass = thisClass.supertypes.firstOrNull()?.jvmErasure ?: break
             }
-        }.flatMap{
-            it.flatMap{
-                it.arguments
-            }.asSequence()
-        }.first{
-            it.type?.jvmErasure?.isSubclassOf(IPresenter::class)?:false
-        }.let{
-            return it.type!!.jvmErasure?.primaryConstructor!!.call() as P
+        }.flatMap {
+            it.flatMap { it.arguments }.asSequence()
+        }.first {
+            it.type?.jvmErasure?.isSubclassOf(IPresenter::class) ?: false
+        }.let {
+            return it.type!!.jvmErasure.primaryConstructor!!.call() as P
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        presenter.view = this
+    private fun createPresenter(): P {
+        buildSequence<Type> {
+            var thisClass: Class<*> = this@BaseActivity.javaClass
+            while (true) {
+                yield(thisClass.genericSuperclass)
+                thisClass = thisClass.superclass ?: break
+            }
+        }.filter {
+            it is ParameterizedType
+        }.flatMap {
+            (it as ParameterizedType).actualTypeArguments.asSequence()
+        }.first {
+            it is Class<*> && IPresenter::class.java.isAssignableFrom(it)
+        }.let {
+            return (it as Class<P>).newInstance()
+        }
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
-        super.onSaveInstanceState(outState)
-        presenter.view = this
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        presenter.onCreate(savedInstanceState)
     }
 
     override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
         super.onSaveInstanceState(outState, outPersistentState)
-        presenter.view = this
     }
 
     public fun action(activity : Class<*>){
@@ -73,35 +86,38 @@ abstract class BaseActivity<out P : BasePresenter<BaseActivity<P>>> :IView<P> , 
 
     }
 
-  
+    override fun onStart() {
+        super.onStart()
+        presenter.onStart()
+    }
 
     override fun onResume() {
         super.onResume()
-        presenter.view = this
-    }
-
-    override fun onStop() {
-        super.onStop()
-        presenter.view = this
-    }
-
-    override fun onStart() {
-        super.onStart()
-        presenter.view = this
+        presenter.onResume()
     }
 
     override fun onPause() {
         super.onPause()
-        presenter.view = this
+        presenter.onPause()
     }
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        presenter.view = this
+    override fun onStop() {
+        super.onStop()
+        presenter.onStop()
     }
 
+    override fun onDestroy() {
+        presenter.onDestory()
+        super.onDestroy()
+    }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        presenter.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        presenter.onViewStateResotre(savedInstanceState)
+    }
 }
-
-

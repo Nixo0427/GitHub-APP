@@ -27,49 +27,55 @@
         android:gravity="bottom"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:background="@drawable/edit_background"
+
         android:id="@+id/layout_login_account"
         android:layout_marginRight="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="40dp"
         android:layout_below="@+id/logo"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="70dp">
         <EditText
+            android:paddingLeft="5dp"
+            android:background="@drawable/edit_background"
+            android:layout_marginBottom="5dp"
             android:drawableLeft="@mipmap/user"
             android:id="@+id/login_account"
             android:maxLines="1"
+            android:drawablePadding="10dp"
             android:text="Nixo0427"
             android:textColor="#fff"
             android:outlineSpotShadowColor="#fff"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="40dp" />
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
         android:paddingTop="6dp"
         android:gravity="bottom"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:background="@drawable/edit_background"
         android:id="@+id/layout_login_password"
         android:layout_marginRight="40dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="16dp"
         android:layout_below="@+id/layout_login_account"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         >
         <EditText
             android:drawableLeft="@mipmap/password"
             android:id="@+id/login_password"
             android:maxLines="1"
+            android:paddingLeft="5dp"
+            android:background="@drawable/edit_background"
             android:text="js19981226"
             android:textColor="#fff"
+            android:drawablePadding="10dp"
+            android:layout_marginBottom="5dp"
             android:textCursorDrawable="@color/colorAccent"
             android:inputType="textPassword"
             android:outlineSpotShadowColor="#fff"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="40dp" />
     </android.support.design.widget.TextInputLayout>
     <TextView
 

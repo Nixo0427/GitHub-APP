@@ -1,69 +1,57 @@
-package github.nixo.com.github.mvp.Impl
+package github.nixo.com.utils.mvp.Impl
 
-import android.app.Fragment
-import android.content.res.Configuration
 import android.os.Bundle
-
+import android.support.v4.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.tencent.bugly.crashreport.CrashReport
+import github.nixo.com.github.Ext.AppContext
 import github.nixo.com.github.mvp.IPresenter
 import github.nixo.com.github.mvp.IView
+import github.nixo.com.github.mvp.Impl.BasePresenter
+import java.lang.reflect.ParameterizedType
+import java.lang.reflect.Type
 import kotlin.coroutines.experimental.buildSequence
 import kotlin.reflect.KClass
 import kotlin.reflect.full.isSubclassOf
 import kotlin.reflect.full.primaryConstructor
 import kotlin.reflect.jvm.jvmErasure
 
-
-/**
- * 这里使用的Fragment是app包下的Fragment 并不是Fragment-V4
- * 原因是Fragment-V4的onCrate生命周期与我写的ILifecycler的onCreate不符合返回值
- * Fragment -v4 -》 onCreate():V
- * ILifecycler -》 onCreate(): Unit
- */
-
-
-abstract class BaseFragment<out P : BasePresenter<BaseFragment<P>>>:IView<P>, Fragment() {
-
+abstract class BaseFragment<out P: BasePresenter<BaseFragment<P>>>: IView<P>,Fragment() {
     override val presenter: P
 
     init {
-        presenter = createPresenter()
+        presenter = createPresenterKt()
         presenter.view = this
+        CrashReport.initCrashReport(AppContext,"c11b3fae00",false)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        presenter.view = this
+    private fun createPresenterKt(): P {
+        buildSequence {
+            var thisClass: KClass<*> = this@BaseFragment::class
+            while (true){
+                yield(thisClass.supertypes)
+                thisClass = thisClass.supertypes.firstOrNull()?.jvmErasure?: break
+            }
+        }.flatMap {
+            it.flatMap { it.arguments }.asSequence()
+        }.first {
+            it.type?.jvmErasure?.isSubclassOf(IPresenter::class) ?: false
+        }.let {
+            return it.type!!.jvmErasure.primaryConstructor!!.call() as P
+        }
     }
+    abstract fun setLayoutParame() : Int
 
-    override fun onSaveInstanceState(outState: Bundle?) {
-        super.onSaveInstanceState(outState)
-        presenter.view = this
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        var view : View? = null
+        if(view == null){
+            view = inflater!!.inflate(setLayoutParame(),container,false)
+        }
+        return view
     }
-
-
-
-    override fun onResume() {
-        super.onResume()
-        presenter.view = this
-    }
-
-    override fun onStop() {
-        super.onStop()
-        presenter.view = this
-    }
-
-    override fun onStart() {
-        super.onStart()
-        presenter.view = this
-    }
-
-    override fun onPause() {
-        super.onPause()
-        presenter.view = this
-    }
-
-
-
 
     fun createPresenter(): P {
         buildSequence {
@@ -86,9 +74,45 @@ abstract class BaseFragment<out P : BasePresenter<BaseFragment<P>>>:IView<P>, Fr
             return it.type!!.jvmErasure.primaryConstructor!!.call() as P
         }
     }
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        presenter.onCreate(savedInstanceState)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        presenter.onStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        presenter.onPause()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        presenter.onStop()
+    }
+
+    override fun onDestroy() {
+        presenter.onDestory()
+        super.onDestroy()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        presenter.onSaveInstanceState(outState)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        presenter.onViewStateResotre(savedInstanceState)
+    }
 }
-
-
-
-
-

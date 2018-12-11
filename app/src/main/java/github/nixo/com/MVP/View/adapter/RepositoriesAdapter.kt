@@ -8,7 +8,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import cn.carbs.android.avatarimageview.library.AppCompatAvatarImageView
 import cn.carbs.android.avatarimageview.library.AppSquareAvatarImageView
-import cn.carbs.android.avatarimageview.library.SquareAvatarImageView
 import github.nixo.com.Common.NetWork.Repository.Repository
 import github.nixo.com.Ext.loadWithGlide
 import github.nixo.com.Ext.otherwise

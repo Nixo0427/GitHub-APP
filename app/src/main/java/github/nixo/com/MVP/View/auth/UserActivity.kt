@@ -1,24 +1,18 @@
 package github.nixo.com.MVP.View.auth
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
-import com.scwang.smartrefresh.layout.api.RefreshLayout
-import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener
+import android.support.v4.app.FragmentManager
 import com.yanzhenjie.sofia.Sofia
-import github.nixo.com.Common.NetWork.Repository.Repository
+import github.nixo.com.Ext.inT
 import github.nixo.com.Ext.loadWithGlide
 import github.nixo.com.Ext.setResGosImage
 import github.nixo.com.MVP.Present.auth.EditUserPresent
-import github.nixo.com.MVP.View.adapter.RepositoriesAdapter
+import github.nixo.com.MVP.View.auth.fragment.MineRepositoryFragment
 import github.nixo.com.github.Common.Model.AccountManager
 import github.nixo.com.github.R
 import github.nixo.com.github.mvp.Impl.BaseActivity
 import kotlinx.android.synthetic.main.activity_edit_user.*
-import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.sdk15.listeners.onClick
-import retrofit2.adapter.rxjava.GitHubPaging
 
 class UserActivity : BaseActivity<EditUserPresent>() {
 
@@ -30,7 +24,6 @@ class UserActivity : BaseActivity<EditUserPresent>() {
         super.onCreate(savedInstanceState)
         Sofia.with(this@UserActivity).statusBarLightFont()
         setContentView(R.layout.activity_edit_user)
-
         initTest()
         initOnClick()
     }
@@ -47,11 +40,11 @@ class UserActivity : BaseActivity<EditUserPresent>() {
     }
 
 
+
+
     fun initOnClick(){
         rb_repositories.onClick {
-            //打开RepositoryFragment
-
-//            presenter.onRepository(user.login,page)
+           supportFragmentManager.inT { add(R.id.rv_user_fragmentContent,MineRepositoryFragment()) }
         }
     }
 

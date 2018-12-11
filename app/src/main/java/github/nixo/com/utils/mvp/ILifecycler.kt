@@ -7,7 +7,9 @@ interface ILifecycler{
 
     fun onCreate(savedInstanceState: Bundle?)
 
-    fun onSaveInstanceState(outState : Bundle?)
+//    public fun onSaveInstanceState(outState : Bundle?)
+
+    fun onSaveInstanceState(outState : Bundle)
 
     fun onViewStateResotre(saveInstanceState : Bundle?)
 

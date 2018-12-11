@@ -2,6 +2,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="github.nixo.com.github.ScrollingActivity">
+
+    <group>
+        <item
+            android:id="@+id/nav_menu_mine"
+            android:orderInCategory="100"
+            android:icon="@mipmap/icon_user"
+            android:title="Your profile"
+            app:showAsAction="always" />
+
+    </group>
+
+
     <item
         android:id="@+id/nav_menu_logout"
         android:orderInCategory="100"
