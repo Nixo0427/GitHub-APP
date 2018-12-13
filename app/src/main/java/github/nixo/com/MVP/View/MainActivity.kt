@@ -15,10 +15,13 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import com.yanzhenjie.sofia.Sofia
 import github.nixo.com.Common.NetWork.Repository.Repository
 import github.nixo.com.Common.NetWork.Repository.RepositoryService
+import github.nixo.com.Common.NetWork.follow.FollowApi
+import github.nixo.com.Common.NetWork.follow.FollowService
 import github.nixo.com.Ext.doOnLayoutAvailable
 import github.nixo.com.Ext.loadWithGlide
 import github.nixo.com.Ext.otherwise
 import github.nixo.com.Ext.yes
+import github.nixo.com.MVP.Model.Following
 import github.nixo.com.MVP.Present.MainPresent
 import github.nixo.com.MVP.View.adapter.RepositoriesAdapter
 import github.nixo.com.MVP.View.auth.UserActivity
@@ -75,6 +78,12 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
 
     override fun onResume() {
         super.onResume()
+        FollowService.allFollowing("Nixo0427")
+                .subscribe({
+                 Log.e("Nixo2333","${it[0].login} ${it[1].login} ${it[2].login}")
+                },{
+                    Log.e("Nixo2333","报错")
+                })
         presenter.getPublicResitorestry(page)
     }
 

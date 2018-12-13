@@ -7,20 +7,21 @@
     android:layout_marginBottom="5dp"
     android:layout_marginLeft="15dp"
     android:layout_marginRight="15dp"
-    android:layout_height="120dp">
+    android:layout_height="100dp">
 
     <RelativeLayout
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:background="@drawable/repository_date"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:layout_height="20dp">
         <TextView
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:id="@+id/item_tv_repository_update"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textColor="@color/colorAccent"
             android:layout_marginLeft="20dp"
             android:maxLines="1"
@@ -33,32 +34,32 @@
     android:background="@drawable/repository_bg"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="80dp">
 
 
     <cn.carbs.android.avatarimageview.library.AppCompatAvatarImageView
         android:id="@+id/item_iv_repository_img"
         android:layout_marginLeft="20dp"
         android:layout_centerVertical="true"
-        android:layout_width="85dp"
-        android:layout_height="85dp" />
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
     <cn.carbs.android.avatarimageview.library.AppSquareAvatarImageView
         android:id="@+id/item_iv_repository_user_img"
         android:visibility="visible"
         android:layout_marginLeft="10dp"
         android:layout_centerVertical="true"
-        android:layout_width="80dp"
-        android:layout_height="80dp" />
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
     <TextView
        android:layout_marginLeft="160dp"
 
-        android:maxLines="2"
+        android:maxLines="1"
         android:gravity="left"
         android:id="@+id/item_tv_repository_titile"
         android:textColor="@color/colorAccent"
         android:paddingRight="5dp"
         android:layout_marginTop="10dp"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <LinearLayout
@@ -68,6 +69,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
+            android:drawableLeft="@mipmap/point"
+            android:drawablePadding="5dp"
             android:layout_marginRight="20dp"
             android:id="@+id/item_tv_repository_languge"
             android:textColor="@color/colorAccent"
