@@ -78,12 +78,7 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
 
     override fun onResume() {
         super.onResume()
-        FollowService.allFollowing("Nixo0427")
-                .subscribe({
-                 Log.e("Nixo2333","${it[0].login} ${it[1].login} ${it[2].login}")
-                },{
-                    Log.e("Nixo2333","报错")
-                })
+
         presenter.getPublicResitorestry(page)
     }
 

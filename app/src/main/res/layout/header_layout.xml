@@ -3,7 +3,7 @@
     android:id="@+id/navigation_header"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="#24292f"
-    android:layout_width="300dp"
+    android:layout_width="250dp"
     android:layout_height="160dp">
     <cn.carbs.android.avatarimageview.library.AppCompatAvatarImageView
         android:id="@+id/nav_img"

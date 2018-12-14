@@ -6,7 +6,6 @@
     <group>
         <item
             android:id="@+id/nav_menu_mine"
-            android:orderInCategory="100"
             android:icon="@mipmap/icon_user"
             android:title="Your profile"
             app:showAsAction="always" />

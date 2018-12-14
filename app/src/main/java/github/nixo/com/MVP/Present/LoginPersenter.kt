@@ -17,12 +17,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginPersenter : BasePresenter<LoginActivity>() {
 
     fun doLogin(account:String , pwd :String){
-       var dialog =  newGenjiDialog {
-            width = dp2px(view.resources,100f)
-            height = dp2px(view.resources,100f)
-            animStyle = R.style.ScaleADEnterExitAnimationX50Y50
-            layoutId = R.layout.dialog_loding
-        }.showOnWindow(view.supportFragmentManager)
+     //todo 自己回家封装个dialog
       AccountManager.username = "Nixo0427"
         AccountManager.passwd = "js19981226"
         view.onLoginStart()
@@ -31,11 +26,11 @@ class LoginPersenter : BasePresenter<LoginActivity>() {
                 .subscribe(object : MySubcrilber<Unit>() {
                     override fun onNext(t: Unit?) {
                         view.onLoginSuccess()
-                        dialog.dismiss()
+//                        dialog.dismiss()
                     }
 
                     override fun onError(responseThrows: ExcaptionUtil.ResponeThrowable) {
-                        dialog.dismiss()
+//                        dialog.dismiss()
                         view.onLoginError(responseThrows)
                     }
 

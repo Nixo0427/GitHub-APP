@@ -7,6 +7,7 @@ import github.nixo.com.Ext.inT
 import github.nixo.com.Ext.loadWithGlide
 import github.nixo.com.Ext.setResGosImage
 import github.nixo.com.MVP.Present.auth.EditUserPresent
+import github.nixo.com.MVP.View.auth.fragment.FollowingFragment
 import github.nixo.com.MVP.View.auth.fragment.MineRepositoryFragment
 import github.nixo.com.github.Common.Model.AccountManager
 import github.nixo.com.github.R
@@ -18,7 +19,8 @@ class UserActivity : BaseActivity<EditUserPresent>() {
 
 
     val user = AccountManager.currentUser!!
-
+    val repositoryFragment = MineRepositoryFragment()
+    val followingFragment = FollowingFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +46,10 @@ class UserActivity : BaseActivity<EditUserPresent>() {
 
     fun initOnClick(){
         rb_repositories.onClick {
-           supportFragmentManager.inT { add(R.id.rv_user_fragmentContent,MineRepositoryFragment()) }
+           supportFragmentManager.inT { replace(R.id.rv_user_fragmentContent,repositoryFragment) }
+        }
+        rb_followering.onClick {
+            supportFragmentManager.inT { replace(R.id.rv_user_fragmentContent,followingFragment) }
         }
     }
 

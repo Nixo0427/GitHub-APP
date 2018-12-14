@@ -25,7 +25,7 @@ class MineRepositoryFragment : BaseFragment<MineRepositoryPresent>(), OnRefreshL
     var page = 1
     var repositoriesAdapter : RepositoriesAdapter? = null
     var manager : LinearLayoutManager? = null
-    var status = 1
+    var status = 2
     var isLoadmore = false
     val user = AccountManager.currentUser!!
 

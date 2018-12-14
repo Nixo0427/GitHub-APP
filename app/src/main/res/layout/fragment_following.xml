@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
 
-
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:layout_marginTop="30dp"
         android:id="@+id/srl_user_repository"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <com.airbnb.lottie.LottieAnimationView
             app:lottie_fileName="growing_circle.json"
             app:lottie_imageAssetsFolder="/"
@@ -20,13 +19,18 @@
             app:lottie_loop="true"
             android:layout_width="match_parent"
             android:layout_height="60dp" />
-        <android.support.v7.widget.RecyclerView
-            android:layout_marginTop="30dp"
-            android:id="@+id/rv_user_repository"
+        <LinearLayout
             android:gravity="center_horizontal"
-            android:layout_below="@+id/user_card"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <android.support.v7.widget.RecyclerView
+            android:gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:id="@+id/rv_user_following"
+            android:layout_below="@+id/user_card"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+        </LinearLayout>
         <com.airbnb.lottie.LottieAnimationView
             app:lottie_fileName="more.json"
             app:lottie_imageAssetsFolder="/"
@@ -38,4 +42,5 @@
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-</LinearLayout>
+
+</RelativeLayout>
