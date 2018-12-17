@@ -36,20 +36,13 @@ class DialogBuilder {
         fun ViewBack(view : View)
     }
 
-    class  publicDialog(layout : Int,context: Context) : BaseDialog(context){
+    class  publicDialog(layoutId : Int,context: Context) : BaseDialog(context) {
 
-
-
+        var mLayoutId = layoutId
 
         override val getViewId: Int
-            get() = layout
+            get() = mLayoutId
 
-
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(layout)
-//            decorView
-        }
     }
 
 }

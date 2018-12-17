@@ -84,7 +84,7 @@ class FollowingFragment : BaseFragment<FollowingPresent>()
     }
     override fun onAdapterClick(data: Any) {
         var data : Following = data as Following
-        DialogBuilder().setLayout(activity!!.baseContext,R.layout.dialog_loading).show()
+        DialogBuilder().setLayout(activity!!,R.layout.dialog_loading).show()
         toast("${data.login}")
     }
 

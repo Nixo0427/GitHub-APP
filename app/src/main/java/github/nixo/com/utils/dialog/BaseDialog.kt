@@ -41,11 +41,13 @@ open class BaseDialog : Dialog {
         super.onCreate(savedInstanceState)
         setContentView(getViewId)
         initView()
+
         val dialogWindows= window
         val lp = dialogWindows.attributes // LayoutParams
         dialogWindows.setGravity(Gravity.CENTER)
         lp.width = WindowManager.LayoutParams.MATCH_PARENT
         lp.height = WindowManager.LayoutParams.MATCH_PARENT
+
         decorView = dialogWindows.decorView
         dialogWindows.attributes = lp
     }
@@ -53,7 +55,10 @@ open class BaseDialog : Dialog {
 
     open fun initView(){}
 
-
+    fun dp2px(dipValue :Int):Int{
+        val scale = context.resources.displayMetrics.density
+        return (dipValue * scale + 0.5f).toInt()
+    }
 
     override fun show() {
         if(isShowing){
@@ -65,7 +70,7 @@ open class BaseDialog : Dialog {
 
     override fun dismiss() {
         var context = getContext()
-        if(context == null || context is Activity){
+        if(context is Activity){
             return
         }
         if(isShowing){

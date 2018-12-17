@@ -15,7 +15,7 @@
 
     <style name="NixoDialog"  parent="android:Animation" mce_bogus="1">
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@color/xxx</item>
+        <item name="android:windowBackground">@color/no_color</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowAnimationStyle">@android:style/Animation</item>
         <item name="android:windowEnterAnimation">@anim/dialog_enter_anim</item>
