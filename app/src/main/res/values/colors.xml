@@ -5,5 +5,6 @@
     <color name="colorAccent">#e7e7e7</color>
     <color name="main_color">#24292f</color>
     <color name="bbb">#bbb</color>
+    <color name="xxx">#000000</color>
     <color name="userinfo_bg">#9c9a9a</color>
 </resources>

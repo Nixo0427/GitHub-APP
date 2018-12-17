@@ -22,7 +22,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="github.nixo.com.MVP.View.auth.LoginActivity"
-            android:label="Login">
+            android:label="Login"
+            android:windowSoftInputMode="stateHidden"
+            >
 
         </activity>
         <activity android:name="github.nixo.com.MVP.View.MainActivity"

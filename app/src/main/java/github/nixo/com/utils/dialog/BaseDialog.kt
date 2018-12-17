@@ -1,10 +1,11 @@
-package github.nixo.com.utils
+package github.nixo.com.utils.dialog
 
 import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import android.view.WindowManager
 import github.nixo.com.github.R
 
@@ -17,13 +18,24 @@ import github.nixo.com.github.R
 open class BaseDialog : Dialog {
 
     protected var mContext : Context
+    var layout :  Int = 0
+    var decorView : View? = null
 
-    constructor(context: Context):super(context, R.style.NewDialog){
+    constructor(context: Context):super(context, R.style.NixoDialog){
+        this.mContext = context
+
+    }
+    constructor(context: Context,style : Int):super(context, style){
         this.mContext = context
     }
-
     open val getViewId: Int
-    get() = 0
+        get() = 0
+
+//    override fun setCancelable(flag: Boolean) {
+//       Logger.debug("是否设置cancelable----------> $flag")
+//        super.setCancelable(flag)
+//    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +46,13 @@ open class BaseDialog : Dialog {
         dialogWindows.setGravity(Gravity.CENTER)
         lp.width = WindowManager.LayoutParams.MATCH_PARENT
         lp.height = WindowManager.LayoutParams.MATCH_PARENT
+        decorView = dialogWindows.decorView
         dialogWindows.attributes = lp
     }
 
 
     open fun initView(){}
+
 
 
     override fun show() {
@@ -48,8 +62,10 @@ open class BaseDialog : Dialog {
         super.show()
     }
 
+
     override fun dismiss() {
-        if(context == null || context !is Activity){
+        var context = getContext()
+        if(context == null || context is Activity){
             return
         }
         if(isShowing){

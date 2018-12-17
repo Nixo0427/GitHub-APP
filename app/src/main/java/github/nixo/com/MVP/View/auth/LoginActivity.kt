@@ -9,6 +9,7 @@ import github.nixo.com.github.Common.Present.LoginPersenter
 import github.nixo.com.github.R
 import github.nixo.com.github.mvp.Impl.BaseActivity
 import github.nixo.com.utils.ExcaptionUtil
+import github.nixo.com.utils.dialog.LoadingDialog
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.sdk15.coroutines.onClick
 import org.jetbrains.anko.toast
@@ -18,6 +19,7 @@ import org.jetbrains.anko.toast
  */
 class LoginActivity :BaseActivity<LoginPersenter>(){
 
+    var loadingDialog : LoadingDialog? = null
 
     override fun onViewStateResotre(saveInstanceState: Bundle?) {
     }
@@ -29,12 +31,9 @@ class LoginActivity :BaseActivity<LoginPersenter>(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         Sofia.with(this@LoginActivity).statusBarLightFont()
-        layout_login_account.hint = resources.getString(R.string.account)
-        layout_login_password.hint = resources.getString(R.string.password)
-
+        loadingDialog = LoadingDialog(this,false)
+        loadingDialog!!.setCancelable(false)
         login_login.onClick {
-
-//            Log.e("Nixo---debug ---- account+login","${login_account.text}-----${login_password.text}")
              if(login_account.text.toString().isEmpty()){
                  Log.e("Nixo","yes")
                  layout_login_account.error = resources.getString(R.string.account_empty)
