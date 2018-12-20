@@ -38,3 +38,10 @@ data class User(var login: String,
                 var owned_private_repos: Int,
                 var disk_usage: Int,
                 var collaborators: Int)
+
+
+
+@PoKo
+data class SerchUser(var total_count:Int,
+                     var incomplete_results: Boolean,
+                     var items : List<User>)

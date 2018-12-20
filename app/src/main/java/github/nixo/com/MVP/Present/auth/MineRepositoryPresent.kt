@@ -8,8 +8,7 @@ import github.nixo.com.github.mvp.Impl.BasePresenter
 
 class MineRepositoryPresent : BasePresenter<MineRepositoryFragment>() {
     fun  onRepository(account :String, page : Int ){
-
-        RepositoryService.listRepositoriesOfUser("Nixo0427",page)
+        RepositoryService.listRepositoriesOfUser(account,page)
                 .subscribe({
                     var list = it
                     view.initReposition(it)

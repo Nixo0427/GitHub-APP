@@ -1,7 +1,6 @@
 package github.nixo.com.utils.dialog
 
 import android.content.Context
-import android.os.Bundle
 import android.view.View
 
 class DialogBuilder {
@@ -14,8 +13,8 @@ class DialogBuilder {
        return this
     }
 
-    fun setViewCallBack(infs : DialogViewCallInterface):DialogBuilder{
-        this.infs == infs
+    fun setViewCallBack(infsc : DialogViewCallInterface):DialogBuilder{
+        this.infs = infsc
         return this
     }
     fun build():publicDialog{
@@ -23,17 +22,16 @@ class DialogBuilder {
     }
 
     fun show():DialogBuilder{
+        dialog!!.show()
         if(infs != null){
             infs!!.ViewBack(dialog!!.decorView!!)
         }
-
-        dialog!!.show()
         return this
     }
 
 
     interface DialogViewCallInterface{
-        fun ViewBack(view : View)
+       public fun ViewBack(view : View)
     }
 
     class  publicDialog(layoutId : Int,context: Context) : BaseDialog(context) {

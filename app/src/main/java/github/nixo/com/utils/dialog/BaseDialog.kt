@@ -40,6 +40,7 @@ open class BaseDialog : Dialog {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getViewId)
+        decorView = View.inflate(mContext, getViewId, null)
         initView()
 
         val dialogWindows= window
@@ -47,6 +48,7 @@ open class BaseDialog : Dialog {
         dialogWindows.setGravity(Gravity.CENTER)
         lp.width = WindowManager.LayoutParams.MATCH_PARENT
         lp.height = WindowManager.LayoutParams.MATCH_PARENT
+        dialogWindows.setWindowAnimations(R.style.NixoDialog)
 
         decorView = dialogWindows.decorView
         dialogWindows.attributes = lp
@@ -62,7 +64,7 @@ open class BaseDialog : Dialog {
 
     override fun show() {
         if(isShowing){
-            return
+
         }
         super.show()
     }

@@ -46,10 +46,6 @@ class RepositoriesAdapter(mContext : Context,startType:String? ) : ListBaseAdapt
         var day  = toList.get(0).value
         var time  = toList.get(1).value
 
-
-
-
-
         (bean.fork).yes {
             forkLayout.visibility = View.VISIBLE
             fork.text = "${bean.forks}"
@@ -64,7 +60,8 @@ class RepositoriesAdapter(mContext : Context,startType:String? ) : ListBaseAdapt
         }.otherwise {
             userImg.visibility = View.GONE
             img.visibility = View.VISIBLE
-            img.loadWithGlide("",bean.language!!.first())
+            var lanuage = if(TextUtils.isEmpty(bean.language)){"UnKnow"}else{bean.language}
+            img.loadWithGlide("",lanuage!!.first())
         }
         title.text = bean.full_name
         language.text = if(TextUtils.isEmpty(bean.language)) "Unknown" else bean.language

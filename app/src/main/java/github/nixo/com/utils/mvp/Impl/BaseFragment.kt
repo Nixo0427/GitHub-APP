@@ -1,5 +1,6 @@
 package github.nixo.com.utils.mvp.Impl
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -17,6 +18,14 @@ import kotlin.reflect.KClass
 import kotlin.reflect.full.isSubclassOf
 import kotlin.reflect.full.primaryConstructor
 import kotlin.reflect.jvm.jvmErasure
+
+
+/**
+ * @author Nixo
+ * 夢はいつも届かない
+ * 梦想总是遥不可及
+ * @date 2018-12-18
+ */
 
 abstract class BaseFragment<out P: BasePresenter<BaseFragment<P>>>: IView<P>,Fragment() {
     override val presenter: P
@@ -84,6 +93,25 @@ abstract class BaseFragment<out P: BasePresenter<BaseFragment<P>>>: IView<P>,Fra
     override fun onStart() {
         super.onStart()
         presenter.onStart()
+    }
+
+
+    public fun action(activity : Class<*>){
+        var intent = Intent(context,activity)
+        startActivity(intent)
+    }
+
+    public fun actionWithParamer(activity: Class<*>,bundle: Bundle){
+        var intent = Intent()
+        intent.setClass(context,activity)
+        intent.putExtras(bundle)
+        startActivity(intent)
+
+    }
+
+    override fun startActivity(intent: Intent?) {
+        super.startActivity(intent)
+
     }
 
     override fun onResume() {

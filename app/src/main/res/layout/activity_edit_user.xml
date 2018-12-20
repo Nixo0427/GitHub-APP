@@ -118,7 +118,6 @@
                 android:textSize="16dp"
                 android:textColor="#4d4b4b"
                 android:layout_marginLeft="80dp"
-                android:text="Nixo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
@@ -127,7 +126,6 @@
                 android:textSize="13dp"
                 android:textColor="#4d4b4b"
                 android:layout_marginLeft="80dp"
-                android:text="Nixo0427"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
@@ -137,7 +135,6 @@
                 android:textColor="#4d4b4b"
                 android:layout_alignLeft="@+id/user_flower"
                 android:maxLines="1"
-                android:text="Nixo0427"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
@@ -148,7 +145,6 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="80dp"
                 android:maxLines="1"
-                android:text="Nixo0427"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
