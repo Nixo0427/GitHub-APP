@@ -9,8 +9,10 @@ import github.nixo.com.Ext.inT
 import github.nixo.com.Ext.loadWithGlide
 import github.nixo.com.Ext.setResGosImage
 import github.nixo.com.MVP.Present.auth.EditUserPresent
-import github.nixo.com.MVP.View.auth.fragment.FollowingFragment
-import github.nixo.com.MVP.View.auth.fragment.MineRepositoryFragment
+import github.nixo.com.MVP.View.fragment.FollowerFragment
+import github.nixo.com.MVP.View.fragment.FollowingFragment
+import github.nixo.com.MVP.View.fragment.MineRepositoryFragment
+import github.nixo.com.MVP.View.fragment.StarFragment
 import github.nixo.com.github.Common.Model.AccountManager
 import github.nixo.com.github.Common.Model.User
 import github.nixo.com.github.R
@@ -24,6 +26,8 @@ class UserActivity : BaseActivity<EditUserPresent>() {
     public var user = AccountManager.currentUser!!
     val repositoryFragment = MineRepositoryFragment()
     val followingFragment = FollowingFragment()
+    val starFragment = StarFragment()
+    val followerFragment = FollowerFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +35,8 @@ class UserActivity : BaseActivity<EditUserPresent>() {
         setContentView(R.layout.activity_edit_user)
         initTest()
         initOnClick()
+        supportFragmentManager.inT { replace(R.id.rv_user_fragmentContent,repositoryFragment) }
+        rb_repositories.isClickable = true
     }
 
     fun initTest(){
@@ -62,6 +68,12 @@ class UserActivity : BaseActivity<EditUserPresent>() {
         }
         rb_followering.onClick {
             supportFragmentManager.inT { replace(R.id.rv_user_fragmentContent,followingFragment) }
+        }
+        rb_start.onClick {
+            supportFragmentManager.inT { replace(R.id.rv_user_fragmentContent,starFragment) }
+        }
+        rb_followers.onClick {
+            supportFragmentManager.inT { replace(R.id.rv_user_fragmentContent,followerFragment) }
         }
     }
 

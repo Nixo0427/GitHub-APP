@@ -37,7 +37,8 @@
             </intent-filter>
         </activity>
         <activity android:name="github.nixo.com.MVP.View.auth.RegisterActivity" />
-        <activity android:name="github.nixo.com.MVP.View.auth.UserActivity"></activity>
+        <activity android:name="github.nixo.com.MVP.View.auth.UserActivity"/>
+        <activity android:name="github.nixo.com.MVP.View.MDTextActivity"/>
     </application>
 
 </manifest>

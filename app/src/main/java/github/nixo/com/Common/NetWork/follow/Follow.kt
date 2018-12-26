@@ -20,6 +20,9 @@ interface FollowApi{
     @DELETE("/user/following/{username}")
     fun unFollowing(@Path("username")username : String ):Observable<Any>
 
+    @GET("users/{username}/followers")
+    fun allFollower(@Path("username")username : String):Observable<GitHubPaging<Following>>
+
 
 }
 object FollowService : FollowApi by retrofit.create(FollowApi::class.java)

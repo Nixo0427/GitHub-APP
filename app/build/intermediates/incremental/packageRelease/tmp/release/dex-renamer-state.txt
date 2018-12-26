@@ -1,0 +1,7 @@
+#Tue Dec 25 13:34:30 CST 2018
+base.0=D\:\\GitHub-APP\\app\\build\\intermediates\\transforms\\dexMerger\\release\\0
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=D\:\\GitHub-APP\\app\\build\\intermediates\\transforms\\dexMerger\\release\\0

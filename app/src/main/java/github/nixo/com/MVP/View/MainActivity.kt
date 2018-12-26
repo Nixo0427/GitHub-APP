@@ -17,15 +17,13 @@ import github.nixo.com.Common.NetWork.Repository.Repository
 import github.nixo.com.Common.NetWork.Repository.RepositoryService
 import github.nixo.com.Common.NetWork.follow.FollowApi
 import github.nixo.com.Common.NetWork.follow.FollowService
-import github.nixo.com.Ext.doOnLayoutAvailable
-import github.nixo.com.Ext.loadWithGlide
-import github.nixo.com.Ext.otherwise
-import github.nixo.com.Ext.yes
+import github.nixo.com.Ext.*
 import github.nixo.com.MVP.Model.Following
 import github.nixo.com.MVP.Present.MainPresent
 import github.nixo.com.MVP.View.adapter.RepositoriesAdapter
 import github.nixo.com.MVP.View.auth.UserActivity
 import github.nixo.com.MVP.View.auth.LoginActivity
+import github.nixo.com.MVP.View.fragment.PublicEventFragment
 import github.nixo.com.github.Common.Model.AccountManager
 import github.nixo.com.github.Common.Model.AccountManager.currentUser
 import github.nixo.com.github.Common.Model.OnAccountStateChangeListener
@@ -45,14 +43,10 @@ import java.lang.NullPointerException
 import java.text.DateFormat
 import java.util.*
 
-class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener ,OnRefreshListener,OnLoadmoreListener{
+class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener {
 
 
-
-    var adapter :RepositoriesAdapter? = null
-    var layoutManager: LinearLayoutManager? = null
-    var isFirst = true
-    var page = 1
+    var publicEventFragment = PublicEventFragment()
 
     override fun onViewStateResotre(saveInstanceState: Bundle?) {
 
@@ -66,51 +60,15 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
         initToolbar()
         setNavMenuOnClickListener()
         AccountManager.onAccountStateChangeListeners.add(this)
-        srl_main!!.setOnRefreshListener(this)
-        srl_main!!.setOnLoadmoreListener(this)
         initNavitaionView()
-        initRecyclerView()
+        supportFragmentManager.inT { replace(R.id.rv_main_fragmentContent,publicEventFragment) }
 
 
 
 
     }
 
-    override fun onResume() {
-        super.onResume()
 
-        presenter.getPublicResitorestry(page)
-    }
-
-    private fun initRecyclerView() {
-        adapter  =  RepositoriesAdapter(this@MainActivity,"")
-        layoutManager =  LinearLayoutManager(this@MainActivity)
-        rv_all_reposition.adapter = adapter
-        rv_all_reposition.layoutManager = layoutManager
-    }
-
-    public fun initAllRepository(response : List<Repository>) {
-        isFirst.yes {
-            adapter!!.setDataList(response)
-        }.otherwise {
-            adapter!!.addAll(response)
-        }
-    }
-
-
-    override fun onRefresh(refreshlayout: RefreshLayout?) {
-        srl_main!!.finishRefresh()
-        page = 1
-        isFirst = true
-        presenter.getPublicResitorestry(page)
-    }
-
-    override fun onLoadmore(refreshlayout: RefreshLayout?) {
-        srl_main!!.finishLoadmore()
-        page++
-        isFirst = false
-        presenter.getPublicResitorestry(page)
-    }
 
 
 
@@ -133,6 +91,10 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
                     }else {
                         action(LoginActivity::class.java)
                     }
+                    true
+                }
+                R.id.nav_menu_test->{
+                    action(MDTextActivity::class.java)
                     true
                 }
                 else -> {

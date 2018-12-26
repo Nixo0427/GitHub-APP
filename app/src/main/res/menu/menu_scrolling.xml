@@ -19,4 +19,9 @@
         android:icon="@mipmap/power_off"
         android:title="Logout"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/nav_menu_test"
+        android:orderInCategory="100"
+        android:title="MD测试"
+        app:showAsAction="always" />
 </menu>

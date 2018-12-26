@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.tencent.bugly.crashreport.CrashReport
 import github.nixo.com.github.Ext.AppContext
 import github.nixo.com.github.mvp.IPresenter
 import github.nixo.com.github.mvp.IView
@@ -33,7 +32,6 @@ abstract class BaseFragment<out P: BasePresenter<BaseFragment<P>>>: IView<P>,Fra
     init {
         presenter = createPresenterKt()
         presenter.view = this
-        CrashReport.initCrashReport(AppContext,"c11b3fae00",false)
     }
 
     private fun createPresenterKt(): P {

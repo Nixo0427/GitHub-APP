@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/white_raduis_bg"
+    android:layout_width="match_parent"
+    android:layout_marginTop="8dp"
+    android:orientation="vertical"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <cn.carbs.android.avatarimageview.library.AppCompatAvatarImageView
+            android:id="@+id/acaiv_header"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/testheader"
+            android:layout_marginLeft="15dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp">
+            <TextView
+                android:id="@+id/tv_name"
+                android:maxLines="1"
+                android:maxLength="50"
+                android:text="Nixo"
+                android:textSize="18dp"
+                android:textColor="@color/xxx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_time"
+                android:text="2018-12-26 - 20:32"
+                android:textSize="12dp"
+                android:textColor="@color/no_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/small_raduis_card"
+            android:text="Type: PushEvent"
+            android:textColor="#fff"
+            android:textSize="8dp"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <View
+        android:id="@+id/line"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/no_color"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:maxLines="5"
+        android:textColor="@color/no_color"
+        android:layout_marginBottom="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="Hey let’s catch up soon. Do you want to grab lunch sometime this weekend?Let me know when you’re free!
+Hey let’s catch up soon. Do you want to grab lunch sometime this weekend?\nLet me know when you’re free!
+Hey let’s catch up soon. Do you want to grab lunch sometime this weekend?\nLet me know when you’re free!
+Hey let’s catch up soon. Do you want to grab lunch sometime this weekend?\nLet me know when you’re free!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

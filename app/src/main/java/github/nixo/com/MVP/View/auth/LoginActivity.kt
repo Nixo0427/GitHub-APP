@@ -30,7 +30,7 @@ class LoginActivity :BaseActivity<LoginPersenter>(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        Sofia.with(this@LoginActivity).statusBarLightFont()
+        Sofia.with(this@LoginActivity).statusBarBackgroundAlpha(0)
         loadingDialog = LoadingDialog(this,false)
         loadingDialog!!.setCancelable(false)
         login_login.onClick {

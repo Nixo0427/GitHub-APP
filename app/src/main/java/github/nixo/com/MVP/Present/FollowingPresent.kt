@@ -5,7 +5,7 @@ import android.view.View
 import github.nixo.com.Common.NetWork.follow.FollowService
 import github.nixo.com.Ext.otherwise
 import github.nixo.com.Ext.yes
-import github.nixo.com.MVP.View.auth.fragment.FollowingFragment
+import github.nixo.com.MVP.View.fragment.FollowingFragment
 import github.nixo.com.github.Common.Model.AccountManager
 import github.nixo.com.github.Common.Model.User
 import github.nixo.com.github.Ext.logger

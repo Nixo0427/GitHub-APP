@@ -4,7 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
-import com.tencent.bugly.crashreport.CrashReport
+import android.view.MotionEvent
+import github.nixo.com.github.Ext.APP
 import github.nixo.com.github.Ext.AppContext
 import github.nixo.com.github.mvp.IPresenter
 import github.nixo.com.github.mvp.IView
@@ -22,7 +23,6 @@ abstract class BaseActivity<out P : BasePresenter<BaseActivity<P>>> : IView<P>, 
     init {
         presenter = createPresenter()
         presenter.view = this
-        CrashReport.initCrashReport(AppContext,"c11b3fae00",false)
     }
 
     private fun createPresenterKt(): P {
@@ -119,5 +119,9 @@ abstract class BaseActivity<out P : BasePresenter<BaseActivity<P>>> : IView<P>, 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
         presenter.onViewStateResotre(savedInstanceState)
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        return super.dispatchTouchEvent(ev)
     }
 }

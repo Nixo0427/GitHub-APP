@@ -15,6 +15,8 @@ import github.nixo.com.Ext.yes
 import github.nixo.com.github.R
 import github.nixo.com.utils.ListBaseAdapter
 import github.nixo.com.utils.SuperViewHolder
+import org.jetbrains.anko.sdk15.listeners.onClick
+import org.jetbrains.anko.toast
 
 class RepositoriesAdapter(mContext : Context,startType:String? ) : ListBaseAdapter<Repository?>(mContext) {
 
@@ -41,11 +43,15 @@ class RepositoriesAdapter(mContext : Context,startType:String? ) : ListBaseAdapt
         val source =  bean.updated_at //原文本
         val pattern = """[0-9:-]+""" //正则式
 
-        //使用kotlin方法打印出匹配出的内容
+        //正则表达式，筛选出最后更新时间
         var toList : List<MatchResult> = Regex(pattern).findAll(source).toList()
         var day  = toList.get(0).value
         var time  = toList.get(1).value
 
+
+        holder.itemView.onClick {
+            Log.e("Nixo0407","${mDataList[position]}")
+        }
         (bean.fork).yes {
             forkLayout.visibility = View.VISIBLE
             fork.text = "${bean.forks}"

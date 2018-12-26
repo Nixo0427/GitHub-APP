@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="account">Account</string>
+    <string name="account_empty">Account can\'t be empty</string>
+    <string name="log_out">Logout</string>
+    <string name="login">Sign in</string>
+    <string name="login_fail">Login Fail</string>
+    <string name="login_success">Login Success</string>
+    <string name="navigation_drawer_close"/>
+    <string name="navigation_drawer_open"/>
+    <string name="password">Password</string>
+    <string name="password_empty">Password can\'t be empty</string>
+    <string name="sign_out">Sign out</string>
+</resources>
