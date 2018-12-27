@@ -1,6 +1,7 @@
 package github.nixo.com.Ext
 
 
+import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.widget.ImageView
@@ -50,6 +51,9 @@ fun AppSquareAvatarImageView.loadWithGlide(url: String, textPlaceHolder: Char, r
             .apply(requestOptions)
             .transition(DrawableTransitionOptions.withCrossFade())
             .into(this)
+
+
+
 }
 
 fun setResGosImage(context: Context, imgUrl :Int, imageView : ImageView, sacala : Int,guass : Int) {

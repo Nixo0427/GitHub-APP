@@ -40,8 +40,8 @@ class UserActivity : BaseActivity<EditUserPresent>() {
     }
 
     fun initTest(){
-//        setResGosImage(this,R.drawable.user_bg,user_bg,20,30)
-        setResGosImage(this,R.mipmap.default_header,user_toolbar_bg,0,80)
+        setResGosImage(this,R.mipmap.testheader,user_bg,0,2)
+//        setResGosImage(this,R.mipmap.default_header,user_toolbar_bg,0,80)
 //        setURLGosImage(this,user.avatar_url,user_card_bg,20,50)
 
 
@@ -63,6 +63,9 @@ class UserActivity : BaseActivity<EditUserPresent>() {
 
 
     fun initOnClick(){
+        iv_back.onClick {
+            finish()
+        }
         rb_repositories.onClick {
             supportFragmentManager.inT { replace(R.id.rv_user_fragmentContent,repositoryFragment) }
         }

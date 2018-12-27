@@ -18,12 +18,12 @@ public final class R {
         private id() {}
 
         public static final int content = 0x7f080038;
-        public static final int navigation_view = 0x7f080087;
-        public static final int status_view = 0x7f0800d1;
+        public static final int navigation_view = 0x7f080088;
+        public static final int status_view = 0x7f0800d2;
     }
     public static final class layout {
         private layout() {}
 
-        public static final int sofia_host_layout = 0x7f0a004d;
+        public static final int sofia_host_layout = 0x7f0a004e;
     }
 }

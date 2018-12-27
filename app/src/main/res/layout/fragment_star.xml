@@ -8,7 +8,6 @@
 
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
-        android:layout_marginTop="30dp"
         android:id="@+id/srl_star_repository"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,7 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="60dp" />
         <android.support.v7.widget.RecyclerView
-            android:layout_marginTop="30dp"
             android:id="@+id/rv_star_repository"
             android:gravity="center_horizontal"
             android:layout_below="@+id/user_card"
