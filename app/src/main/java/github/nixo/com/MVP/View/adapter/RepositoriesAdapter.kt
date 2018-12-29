@@ -32,8 +32,7 @@ class RepositoriesAdapter(mContext : Context,startType:String? ) : ListBaseAdapt
         var forkLayout = holder.getView<LinearLayout>(R.id.item_ll_repository_fork)
         var fork = holder.getView<TextView>(R.id.item_tv_repository_fork)
         var update = holder.getView<TextView>(R.id.item_tv_repository_update)
-        var img = holder.getView<AppCompatAvatarImageView>(R.id.item_iv_repository_img)
-        var userImg = holder.getView<AppSquareAvatarImageView>(R.id.item_iv_repository_user_img)
+        var img = holder.getView<AppSquareAvatarImageView>(R.id.item_iv_repository_img)
 
 //
         Log.e("Nixo---Adapter拿没拿到View","${title==null}")
@@ -59,16 +58,8 @@ class RepositoriesAdapter(mContext : Context,startType:String? ) : ListBaseAdapt
             fork.text = ""
             forkLayout.visibility = View.GONE
         }
-        TextUtils.isEmpty(startType).yes {
-            img.visibility = View.GONE
-            userImg.visibility = View.VISIBLE
-            userImg.loadWithGlide(bean.owner.avatar_url,bean.owner.login.first())
-        }.otherwise {
-            userImg.visibility = View.GONE
-            img.visibility = View.VISIBLE
-            var lanuage = if(TextUtils.isEmpty(bean.language)){"UnKnow"}else{bean.language}
-            img.loadWithGlide("",lanuage!!.first())
-        }
+        img.loadWithGlide(bean.owner.avatar_url,bean.owner.login.first())
+        var lanuage = if(TextUtils.isEmpty(bean.language)){"UnKnow"}else{bean.language}
         title.text = bean.full_name
         language.text = if(TextUtils.isEmpty(bean.language)) "Unknown" else bean.language
         update.text = "updated for:   "+day+"  "+time

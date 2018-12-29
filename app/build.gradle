@@ -105,6 +105,8 @@ dependencies {
     //分页工具
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4'
     api 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4'
+    //CardView
+    api 'com.android.support:cardview-v7:28.0.0'
 
 
 }

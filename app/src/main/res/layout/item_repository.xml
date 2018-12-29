@@ -1,82 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:paddingRight="5dp"
-    android:paddingLeft="5dp"
-    android:layout_marginTop="5dp"
-    android:layout_marginBottom="5dp"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="15dp"
-    android:layout_height="100dp">
-
-    <RelativeLayout
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:background="@drawable/repository_date"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="20dp">
-        <TextView
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/item_tv_repository_update"
-            android:textSize="12sp"
-            android:textColor="@color/colorAccent"
-            android:layout_marginLeft="20dp"
-            android:maxLines="1"
-            android:text="2017-12-22T12:45:50Z"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
-<RelativeLayout
-
-    android:background="@drawable/repository_bg"
+<android.support.v7.widget.CardView
+    android:layout_margin="5dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:elevation="5dp"
     android:layout_width="match_parent"
-    android:layout_height="80dp">
-
-
-    <cn.carbs.android.avatarimageview.library.AppCompatAvatarImageView
-        android:id="@+id/item_iv_repository_img"
-        android:layout_marginLeft="20dp"
-        android:layout_centerVertical="true"
-        android:layout_width="60dp"
-        android:layout_height="60dp" />
-    <cn.carbs.android.avatarimageview.library.AppSquareAvatarImageView
-        android:id="@+id/item_iv_repository_user_img"
-        android:visibility="visible"
-        android:layout_marginLeft="10dp"
-        android:layout_centerVertical="true"
-        android:layout_width="60dp"
-        android:layout_height="60dp" />
-    <TextView
-android:layout_marginLeft="100dp"
-        android:maxLines="1"
-        android:gravity="left"
-        android:id="@+id/item_tv_repository_titile"
-        android:textColor="@color/colorAccent"
-        android:paddingRight="5dp"
-        android:layout_marginTop="10dp"
-        android:textSize="14sp"
+    android:layout_height="wrap_content">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
+
+        <cn.carbs.android.avatarimageview.library.AppSquareAvatarImageView
+
+            android:id="@+id/item_iv_repository_img"
+            android:src="@mipmap/testheader"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="95dp"
+            android:layout_height="95dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="130dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/item_tv_repository_titile"
+                android:textSize="16dp"
+                android:maxLines="1"
+                android:text="Android-Kotlin-Ext"
+                android:textColor="#8e8e8e"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/item_tv_repository_update"
+                android:layout_marginTop="15dp"
+                android:textSize="14dp"
+                android:text="2018-06-13 20:44"
+                android:textColor="#8e8e8e"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
     <LinearLayout
-        android:layout_alignLeft="@+id/item_tv_repository_titile"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="85dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <TextView
-            android:drawableLeft="@mipmap/point"
-            android:drawablePadding="5dp"
-            android:layout_marginRight="20dp"
-            android:id="@+id/item_tv_repository_languge"
-            android:textColor="@color/colorAccent"
-            android:text="Kotlin"
-            android:layout_below="@+id/item_tv_repository_titile"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginTop="2dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/point"
+
+                />
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/item_tv_repository_languge"
+                android:textColor="#8e8e8e"
+                android:text="Kotlin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
         <LinearLayout
             android:id="@+id/item_ll_repository_fork"
             android:layout_width="wrap_content"
@@ -88,9 +81,10 @@ android:layout_marginLeft="100dp"
                 android:layout_width="15dp"
                 android:layout_height="13dp" />
             <TextView
+                android:layout_marginLeft="5dp"
                 android:id="@+id/item_tv_repository_fork"
                 android:text="20"
-                android:textColor="@color/colorAccent"
+                android:textColor="#8e8e8e"
                 android:textSize="14dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -99,6 +93,7 @@ android:layout_marginLeft="100dp"
     </LinearLayout>
 
 
-</RelativeLayout>
 
-</RelativeLayout>
+</android.support.v7.widget.CardView>
+
+
