@@ -1889,7 +1889,47 @@
     </style><style name="Base.Widget.Design.AppBarLayout" parent="Base.V21.Widget.Design.AppBarLayout"/></file><file path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\b54ecbcfe7dea5086bdbaa8f1bd49341\res\values-v26\values-v26.xml" qualifiers="v26"><style name="Base.V26.Widget.Design.AppBarLayout" parent="Base.V21.Widget.Design.AppBarLayout">
         <item name="android:keyboardNavigationCluster">true</item>
         <item name="android:touchscreenBlocksFocus">true</item>
-    </style><style name="Base.Widget.Design.AppBarLayout" parent="Base.V26.Widget.Design.AppBarLayout"/></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.scwang.smartrefresh:SmartRefreshHeader:1.0.4$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshHeader-1.0.4.aar\baf477187a3aa4e57319b2729110992d\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.scwang.smartrefresh:SmartRefreshHeader:1.0.4" from-dependency="true" generated-set="com.scwang.smartrefresh:SmartRefreshHeader:1.0.4$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshHeader-1.0.4.aar\baf477187a3aa4e57319b2729110992d\res"><file path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshHeader-1.0.4.aar\baf477187a3aa4e57319b2729110992d\res\values\values.xml" qualifiers=""><declare-styleable name="DropboxHeader"><attr format="reference" name="dhDrawable1"/><attr format="reference" name="dhDrawable2"/><attr format="reference" name="dhDrawable3"/></declare-styleable><declare-styleable name="FunGameHeader"><attr format="string" name="fgvMaskTopText"/><attr format="string" name="fgvMaskBottomText"/><attr format="dimension" name="fgvTopTextSize"/><attr format="dimension" name="fgvBottomTextSize"/></declare-styleable><declare-styleable name="FunGameHitBlockHeader"><attr format="integer" name="fgvBlockHorizontalNum"/><attr format="dimension" name="fgvBallSpeed">
+    </style><style name="Base.Widget.Design.AppBarLayout" parent="Base.V26.Widget.Design.AppBarLayout"/></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.github.liuguangli:downloaderlibrary:-SNAPSHOT$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\downloaderlibrary--SNAPSHOT.aar\0f6c6262f7726715928e663930de62ea\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.github.liuguangli:downloaderlibrary:-SNAPSHOT" from-dependency="true" generated-set="com.github.liuguangli:downloaderlibrary:-SNAPSHOT$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\downloaderlibrary--SNAPSHOT.aar\0f6c6262f7726715928e663930de62ea\res"><file path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\downloaderlibrary--SNAPSHOT.aar\0f6c6262f7726715928e663930de62ea\res\values\values.xml" qualifiers=""><dimen name="activity_horizontal_margin">16dp</dimen><dimen name="activity_vertical_margin">16dp</dimen><string name="action_settings">Settings</string><string name="app_name">DownloaderLibrary</string><string name="hello_world">Hello world!</string></file><file path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\downloaderlibrary--SNAPSHOT.aar\0f6c6262f7726715928e663930de62ea\res\values-w820dp-v13\values-w820dp-v13.xml" qualifiers="w820dp-v13"><dimen name="activity_horizontal_margin">64dp</dimen></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.android.support:cardview-v7:28.0.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\b642f159e2d70a1bfc94b63490844a43\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.android.support:cardview-v7:28.0.0" from-dependency="true" generated-set="com.android.support:cardview-v7:28.0.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\b642f159e2d70a1bfc94b63490844a43\res"><file path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\b642f159e2d70a1bfc94b63490844a43\res\values\values.xml" qualifiers=""><attr format="reference" name="cardViewStyle"/><color name="cardview_dark_background">#FF424242</color><color name="cardview_light_background">#FFFFFFFF</color><color name="cardview_shadow_end_color">#03000000</color><color name="cardview_shadow_start_color">#37000000</color><declare-styleable name="CardView">
+        
+        <attr format="color" name="cardBackgroundColor"/>
+        
+        <attr format="dimension" name="cardCornerRadius"/>
+        
+        <attr format="dimension" name="cardElevation"/>
+        
+        <attr format="dimension" name="cardMaxElevation"/>
+        
+        <attr format="boolean" name="cardUseCompatPadding"/>
+        
+        <attr format="boolean" name="cardPreventCornerOverlap"/>
+        
+        <attr format="dimension" name="contentPadding"/>
+        
+        <attr format="dimension" name="contentPaddingLeft"/>
+        
+        <attr format="dimension" name="contentPaddingRight"/>
+        
+        <attr format="dimension" name="contentPaddingTop"/>
+        
+        <attr format="dimension" name="contentPaddingBottom"/>
+        
+        <attr name="android:minWidth"/>
+        
+        <attr name="android:minHeight"/>
+    </declare-styleable><dimen name="cardview_compat_inset_shadow">1dp</dimen><dimen name="cardview_default_elevation">2dp</dimen><dimen name="cardview_default_radius">2dp</dimen><style name="Base.CardView" parent="android:Widget">
+        <item name="cardCornerRadius">@dimen/cardview_default_radius</item>
+        <item name="cardElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardMaxElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardUseCompatPadding">false</item>
+        <item name="cardPreventCornerOverlap">true</item>
+    </style><style name="CardView" parent="Base.CardView">
+    </style><style name="CardView.Dark">
+        <item name="cardBackgroundColor">@color/cardview_dark_background</item>
+    </style><style name="CardView.Light">
+        <item name="cardBackgroundColor">@color/cardview_light_background</item>
+    </style></file><file path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\b642f159e2d70a1bfc94b63490844a43\res\values-v23\values-v23.xml" qualifiers="v23"><style name="CardView" parent="Base.CardView">
+        <item name="cardBackgroundColor">?android:attr/colorBackgroundFloating</item>
+    </style></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.scwang.smartrefresh:SmartRefreshHeader:1.0.4$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshHeader-1.0.4.aar\baf477187a3aa4e57319b2729110992d\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.scwang.smartrefresh:SmartRefreshHeader:1.0.4" from-dependency="true" generated-set="com.scwang.smartrefresh:SmartRefreshHeader:1.0.4$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshHeader-1.0.4.aar\baf477187a3aa4e57319b2729110992d\res"><file path="C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshHeader-1.0.4.aar\baf477187a3aa4e57319b2729110992d\res\values\values.xml" qualifiers=""><declare-styleable name="DropboxHeader"><attr format="reference" name="dhDrawable1"/><attr format="reference" name="dhDrawable2"/><attr format="reference" name="dhDrawable3"/></declare-styleable><declare-styleable name="FunGameHeader"><attr format="string" name="fgvMaskTopText"/><attr format="string" name="fgvMaskBottomText"/><attr format="dimension" name="fgvTopTextSize"/><attr format="dimension" name="fgvBottomTextSize"/></declare-styleable><declare-styleable name="FunGameHitBlockHeader"><attr format="integer" name="fgvBlockHorizontalNum"/><attr format="dimension" name="fgvBallSpeed">
             
             
             
@@ -1922,7 +1962,7 @@
         <item name="android:windowAnimationStyle">@android:style/Animation</item>
         <item name="android:windowEnterAnimation">@anim/dialog_enter_anim</item>
         <item name="android:windowExitAnimation">@anim/dialog_exit_anim</item>
-    </style><style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/><style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/></file><file path="D:\GitHub-APP\app\src\main\res\values-en\strings.xml" qualifiers="en"><string name="login">Sign in</string><string name="account_empty">Account can\'t be empty</string><string name="password_empty">Password can\'t be empty</string><string name="account">Account</string><string name="password">Password</string><string name="login_success">Login Success</string><string name="login_fail">Login Fail</string><string name="sign_out">Sign out</string><string name="navigation_drawer_open"/><string name="navigation_drawer_close"/><string name="log_out">Logout</string></file><file path="D:\GitHub-APP\app\src\main\res\values-zh\strings.xml" qualifiers="zh"><string name="login">登录</string><string name="account_empty">账号不能为空</string><string name="password_empty">密码不能为空</string><string name="account">账号</string><string name="password">密码</string><string name="login_success">登录成功</string><string name="login_fail">登录失败</string><string name="sign_out">没有账号?</string><string name="navigation_drawer_open"/><string name="navigation_drawer_close"/><string name="log_out">退出登录</string></file></source><source path="D:\GitHub-APP\app\build\generated\res\rs\debug"/><source path="D:\GitHub-APP\app\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\GitHub-APP\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\GitHub-APP\app\src\debug\res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="AlertDialog"><attr name="android:layout"/><attr format="reference" name="buttonPanelSideLayout"/><attr format="reference" name="listLayout"/><attr format="reference" name="multiChoiceItemLayout"/><attr format="reference" name="singleChoiceItemLayout"/><attr format="reference" name="listItemLayout"/><attr format="boolean" name="showTitle"/><attr format="dimension" name="buttonIconDimen"/></declare-styleable><declare-styleable name="AppCompatSeekBar"><attr name="android:thumb"/><attr format="reference" name="tickMark"/><attr format="color" name="tickMarkTint"/><attr name="tickMarkTintMode">
+    </style><style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/><style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/></file><file path="D:\GitHub-APP\app\src\main\res\values-en\strings.xml" qualifiers="en"><string name="login">Sign in</string><string name="account_empty">Account can\'t be empty</string><string name="password_empty">Password can\'t be empty</string><string name="account">Account</string><string name="password">Password</string><string name="login_success">Login Success</string><string name="login_fail">Login Fail</string><string name="sign_out">Sign out</string><string name="navigation_drawer_open"/><string name="navigation_drawer_close"/><string name="log_out">Logout</string></file><file path="D:\GitHub-APP\app\src\main\res\values-zh\strings.xml" qualifiers="zh"><string name="login">登录</string><string name="account_empty">账号不能为空</string><string name="password_empty">密码不能为空</string><string name="account">账号</string><string name="password">密码</string><string name="login_success">登录成功</string><string name="login_fail">登录失败</string><string name="sign_out">没有账号?</string><string name="navigation_drawer_open"/><string name="navigation_drawer_close"/><string name="log_out">退出登录</string></file><file name="provider_paths" path="D:\GitHub-APP\app\src\main\res\xml\provider_paths.xml" qualifiers="" type="xml"/></source><source path="D:\GitHub-APP\app\build\generated\res\rs\debug"/><source path="D:\GitHub-APP\app\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\GitHub-APP\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\GitHub-APP\app\src\debug\res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="AlertDialog"><attr name="android:layout"/><attr format="reference" name="buttonPanelSideLayout"/><attr format="reference" name="listLayout"/><attr format="reference" name="multiChoiceItemLayout"/><attr format="reference" name="singleChoiceItemLayout"/><attr format="reference" name="listItemLayout"/><attr format="boolean" name="showTitle"/><attr format="dimension" name="buttonIconDimen"/></declare-styleable><declare-styleable name="AppCompatSeekBar"><attr name="android:thumb"/><attr format="reference" name="tickMark"/><attr format="color" name="tickMarkTint"/><attr name="tickMarkTintMode">
             
             <enum name="src_over" value="3"/>
             
@@ -2083,7 +2123,34 @@
             <enum name="none" value="0"/>
             
             <enum name="uniform" value="1"/>
-        </attr><attr format="dimension" name="autoSizeStepGranularity"/><attr format="reference" name="autoSizePresetSizes"/><attr format="dimension" name="autoSizeMinTextSize"/><attr format="dimension" name="autoSizeMaxTextSize"/><attr format="string" name="fontFamily"/></declare-styleable><declare-styleable name="ButtonBarLayout"><attr format="boolean" name="allowStacking"/></declare-styleable><declare-styleable name="ViewBackgroundHelper"><attr name="android:background"/><attr format="color" name="backgroundTint"/><attr name="backgroundTintMode">
+        </attr><attr format="dimension" name="autoSizeStepGranularity"/><attr format="reference" name="autoSizePresetSizes"/><attr format="dimension" name="autoSizeMinTextSize"/><attr format="dimension" name="autoSizeMaxTextSize"/><attr format="string" name="fontFamily"/></declare-styleable><declare-styleable name="CardView">
+        
+        <attr format="color" name="cardBackgroundColor"/>
+        
+        <attr format="dimension" name="cardCornerRadius"/>
+        
+        <attr format="dimension" name="cardElevation"/>
+        
+        <attr format="dimension" name="cardMaxElevation"/>
+        
+        <attr format="boolean" name="cardUseCompatPadding"/>
+        
+        <attr format="boolean" name="cardPreventCornerOverlap"/>
+        
+        <attr format="dimension" name="contentPadding"/>
+        
+        <attr format="dimension" name="contentPaddingLeft"/>
+        
+        <attr format="dimension" name="contentPaddingRight"/>
+        
+        <attr format="dimension" name="contentPaddingTop"/>
+        
+        <attr format="dimension" name="contentPaddingBottom"/>
+        
+        <attr name="android:minWidth"/>
+        
+        <attr name="android:minHeight"/>
+    </declare-styleable><declare-styleable name="ButtonBarLayout"><attr format="boolean" name="allowStacking"/></declare-styleable><declare-styleable name="ViewBackgroundHelper"><attr name="android:background"/><attr format="color" name="backgroundTint"/><attr name="backgroundTintMode">
             
             <enum name="src_over" value="3"/>
             

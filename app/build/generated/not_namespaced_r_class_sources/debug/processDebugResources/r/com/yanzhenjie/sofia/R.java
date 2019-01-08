@@ -12,14 +12,14 @@ public final class R {
     public static final class color {
         private color() {}
 
-        public static final int sofia_navigation = 0x7f05005d;
+        public static final int sofia_navigation = 0x7f050061;
     }
     public static final class id {
         private id() {}
 
         public static final int content = 0x7f080038;
-        public static final int navigation_view = 0x7f080088;
-        public static final int status_view = 0x7f0800d2;
+        public static final int navigation_view = 0x7f080089;
+        public static final int status_view = 0x7f0800d3;
     }
     public static final class layout {
         private layout() {}

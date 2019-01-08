@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-44:12
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-61:12
 MERGED from [io.reactivex:rxandroid:1.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\rxandroid-1.2.1.aar\d72caed8e1d49dfce9af37653be142a5\AndroidManifest.xml:15:1-21:12
 MERGED from [cn.carbs.android:AvatarImageView:1.0.4] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\AvatarImageView-1.0.4.aar\76c440f397917238e66f5f113f6230ea\AndroidManifest.xml:2:1-12:12
 MERGED from [com.zzhoujay.markdown:markdown:1.0.5] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\markdown-1.0.5.aar\cb4ca72e28a9980a21ae99dd35adf731\AndroidManifest.xml:2:1-14:12
@@ -14,13 +14,15 @@ MERGED from [com.yanzhenjie:sofia:1.0.5] C:\Users\Administrator\.gradle\caches\t
 MERGED from [jp.wasabeef:glide-transformations:2.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\glide-transformations-2.0.2.aar\1d1616b7c49aeb4ee89359fced654c11\AndroidManifest.xml:2:1-12:12
 MERGED from [com.scwang.smartrefresh:SmartRefreshLayout:1.0.4] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshLayout-1.0.4.aar\c522699ff7fd902b6a6cb99b2a89319b\AndroidManifest.xml:2:1-17:12
 MERGED from [com.scwang.smartrefresh:SmartRefreshHeader:1.0.4] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshHeader-1.0.4.aar\baf477187a3aa4e57319b2729110992d\AndroidManifest.xml:2:1-17:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\b642f159e2d70a1bfc94b63490844a43\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.liuguangli:downloaderlibrary:-SNAPSHOT] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\downloaderlibrary--SNAPSHOT.aar\0f6c6262f7726715928e663930de62ea\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:design:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\b54ecbcfe7dea5086bdbaa8f1bd49341\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\209bc4914224f6c210aba7209f464f60\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\6821b482c4d43af6235a950aad74f3e0\AndroidManifest.xml:2:1-11:12
 MERGED from [jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\gpuimage-library-1.4.1.aar\428fba5dabd29661477da835d8d21589\AndroidManifest.xml:2:1-12:12
-MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\50993e78e5ccea01e167fe9348667850\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\c0c24e8f7c4ce052164efd36f9b3513d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:transition:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\b259bacca0b78138019149d00bd4437b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\50993e78e5ccea01e167fe9348667850\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\b484df6c3a5e1fd1a0a305e6bea6a1ab\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\f99bbca116b0b427fcb09bf26a1d3625\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\8f8396236620071e4ca4f454b699277c\AndroidManifest.xml:17:1-22:12
@@ -32,20 +34,20 @@ MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Administrator\.gradl
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\3263802c9b5f38ab3bbaf488a6f13cb9\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\0aabbe966ffb3040f0ad481ab87b88f4\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\55a4245032747edbb2a6adc4ed9897fb\AndroidManifest.xml:17:1-22:12
-INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-61:12
 	package
 		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:3:5-37
 		INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml
 		INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-44:12
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-61:12
 		INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-44:12
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:1-61:12
 		INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:2:11-69
@@ -61,28 +63,40 @@ uses-permission#android.permission.READ_CONTACTS
 ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:8:5-72
 	android:name
 		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:8:22-69
-uses-permission#android.permission.INTERNET
-ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:9:5-67
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:9:5-72
 	android:name
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:9:22-64
-uses-permission#android.permission.READ_PHONE_STATE
-ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:10:5-75
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:9:22-70
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:10:5-80
 	android:name
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:10:22-72
-uses-permission#android.permission.ACCESS_NETWORK_STATE
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:10:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:11:5-79
 	android:name
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:11:22-76
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:11:22-77
+uses-permission#android.permission.INTERNET
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:12:5-67
+	android:name
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:12:22-64
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:13:5-75
+	android:name
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:13:22-72
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:14:5-79
+	android:name
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:14:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:12:5-76
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:15:5-76
 	android:name
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:12:22-73
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:15:22-73
 uses-permission#android.permission.READ_LOGS
-ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:13:5-68
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:16:5-68
 	android:name
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:13:22-65
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:16:22-65
 application
-ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:15:5-42:19
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:18:5-59:19
 MERGED from [com.zzhoujay.markdown:markdown:1.0.5] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\markdown-1.0.5.aar\cb4ca72e28a9980a21ae99dd35adf731\AndroidManifest.xml:12:5-20
 MERGED from [com.zzhoujay.markdown:markdown:1.0.5] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\markdown-1.0.5.aar\cb4ca72e28a9980a21ae99dd35adf731\AndroidManifest.xml:12:5-20
 MERGED from [com.bennyhuo.swipefinishable:swipefinishable:1.0-rc2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\swipefinishable-1.0-rc2.aar\0523c84e67882cb27590c35031d11219\AndroidManifest.xml:11:5-15:19
@@ -96,55 +110,71 @@ MERGED from [com.scwang.smartrefresh:SmartRefreshHeader:1.0.4] C:\Users\Administ
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\6821b482c4d43af6235a950aad74f3e0\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\6821b482c4d43af6235a950aad74f3e0\AndroidManifest.xml:9:5-20
 	android:supportsRtl
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:21:9-35
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:24:9-35
 	android:label
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:19:9-41
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:22:9-41
 	android:roundIcon
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:20:9-43
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:23:9-43
 	android:icon
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:18:9-38
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:21:9-38
 	android:allowBackup
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:17:9-35
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:20:9-35
 	android:theme
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:22:9-40
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:25:9-40
 	android:name
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:16:9-32
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:19:9-32
+provider#android.support.v4.content.FileProvider
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:27:9-35:20
+	android:grantUriPermissions
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:31:13-47
+	android:authorities
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:29:13-50
+	android:exported
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:28:13-67
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:32:13-34:58
+	android:resource
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:34:17-55
+	android:name
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:33:17-67
 activity#github.nixo.com.MVP.View.auth.LoginActivity
-ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:23:9-29:20
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:38:9-46:20
 	android:label
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:25:13-34
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:40:13-34
 	android:windowSoftInputMode
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:26:13-54
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:41:13-54
 	android:name
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:24:13-71
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:39:13-71
 activity#github.nixo.com.MVP.View.MainActivity
-ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:30:9-38:20
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:47:9-55:20
 	android:windowSoftInputMode
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:31:13-60
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:48:13-60
 	android:name
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:30:19-71
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:47:19-71
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:33:13-37:29
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:50:13-54:29
 action#android.intent.action.MAIN
-ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:34:17-69
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:51:17-69
 	android:name
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:34:25-66
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:51:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:36:17-77
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:53:17-77
 	android:name
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:36:27-74
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:53:27-74
 activity#github.nixo.com.MVP.View.auth.RegisterActivity
-ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:39:9-83
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:56:9-83
 	android:name
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:39:19-80
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:56:19-80
 activity#github.nixo.com.MVP.View.auth.UserActivity
-ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:40:9-78
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:57:9-78
 	android:name
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:40:19-76
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:57:19-76
 activity#github.nixo.com.MVP.View.MDTextActivity
-ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:41:9-75
+ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:58:9-75
 	android:name
-		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:41:19-73
+		ADDED from D:\GitHub-APP\app\src\main\AndroidManifest.xml:58:19-73
 uses-sdk
 INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\GitHub-APP\app\src\main\AndroidManifest.xml
@@ -169,6 +199,10 @@ MERGED from [com.scwang.smartrefresh:SmartRefreshLayout:1.0.4] C:\Users\Administ
 MERGED from [com.scwang.smartrefresh:SmartRefreshLayout:1.0.4] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshLayout-1.0.4.aar\c522699ff7fd902b6a6cb99b2a89319b\AndroidManifest.xml:7:5-9:41
 MERGED from [com.scwang.smartrefresh:SmartRefreshHeader:1.0.4] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshHeader-1.0.4.aar\baf477187a3aa4e57319b2729110992d\AndroidManifest.xml:7:5-9:41
 MERGED from [com.scwang.smartrefresh:SmartRefreshHeader:1.0.4] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshHeader-1.0.4.aar\baf477187a3aa4e57319b2729110992d\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\b642f159e2d70a1bfc94b63490844a43\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\b642f159e2d70a1bfc94b63490844a43\AndroidManifest.xml:20:5-44
+MERGED from [com.github.liuguangli:downloaderlibrary:-SNAPSHOT] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\downloaderlibrary--SNAPSHOT.aar\0f6c6262f7726715928e663930de62ea\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.liuguangli:downloaderlibrary:-SNAPSHOT] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\downloaderlibrary--SNAPSHOT.aar\0f6c6262f7726715928e663930de62ea\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\b54ecbcfe7dea5086bdbaa8f1bd49341\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:design:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\b54ecbcfe7dea5086bdbaa8f1bd49341\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\209bc4914224f6c210aba7209f464f60\AndroidManifest.xml:20:5-44
@@ -177,12 +211,12 @@ MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Ad
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\6821b482c4d43af6235a950aad74f3e0\AndroidManifest.xml:5:5-7:41
 MERGED from [jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\gpuimage-library-1.4.1.aar\428fba5dabd29661477da835d8d21589\AndroidManifest.xml:8:5-10:41
 MERGED from [jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\gpuimage-library-1.4.1.aar\428fba5dabd29661477da835d8d21589\AndroidManifest.xml:8:5-10:41
-MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\50993e78e5ccea01e167fe9348667850\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\50993e78e5ccea01e167fe9348667850\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\c0c24e8f7c4ce052164efd36f9b3513d\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\c0c24e8f7c4ce052164efd36f9b3513d\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\b259bacca0b78138019149d00bd4437b\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\b259bacca0b78138019149d00bd4437b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\50993e78e5ccea01e167fe9348667850\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\50993e78e5ccea01e167fe9348667850\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\b484df6c3a5e1fd1a0a305e6bea6a1ab\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\b484df6c3a5e1fd1a0a305e6bea6a1ab\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\f99bbca116b0b427fcb09bf26a1d3625\AndroidManifest.xml:20:5-44
