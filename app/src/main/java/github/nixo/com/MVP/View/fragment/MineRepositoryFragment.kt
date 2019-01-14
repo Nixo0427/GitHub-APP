@@ -4,6 +4,10 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
+import com.scwang.smartrefresh.header.BezierCircleHeader
+import com.scwang.smartrefresh.header.MaterialHeader
+import com.scwang.smartrefresh.header.TaurusHeader
+import com.scwang.smartrefresh.header.WaveSwipeHeader
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
@@ -37,11 +41,12 @@ class MineRepositoryFragment : BaseFragment<MineRepositoryPresent>(), OnRefreshL
         this.user = activity.user
         userName = user!!.login
         Log.e("Nixo-----收到的user","$user")
-        repositoriesAdapter = RepositoriesAdapter(activity!!.baseContext,"user")
+        repositoriesAdapter = RepositoriesAdapter(activity,"user")
         manager = LinearLayoutManager(activity)
         rv_user_repository.layoutManager = manager
         rv_user_repository.adapter = repositoriesAdapter
         srl_user_repository.setOnLoadmoreListener(this)
+        srl_user_repository.refreshHeader = MaterialHeader(activity)
         srl_user_repository.setOnRefreshListener(this)
         presenter.onRepository(userName,page)
         Log.e("用户名",userName+"")

@@ -3,6 +3,7 @@ package github.nixo.com.MVP.View.fragment
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import com.scwang.smartrefresh.header.MaterialHeader
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
@@ -13,6 +14,7 @@ import github.nixo.com.MVP.View.auth.UserActivity
 import github.nixo.com.github.Common.Model.User
 import github.nixo.com.github.R
 import github.nixo.com.utils.mvp.Impl.BaseFragment
+import kotlinx.android.synthetic.main.fragment_mine_repository.*
 import kotlinx.android.synthetic.main.fragment_star.*
 import retrofit2.adapter.rxjava.GitHubPaging
 
@@ -39,12 +41,13 @@ class StarFragment : BaseFragment<StarPrsent>(), OnRefreshListener, OnLoadmoreLi
         super.onActivityCreated(savedInstanceState)
         activity  = getActivity() as UserActivity
         presenter.getStarListRepoitory(activity!!.user.login,page)
-        repositoriesAdapter = RepositoriesAdapter(activity!!.baseContext,"")
+        repositoriesAdapter = RepositoriesAdapter(activity!!,"")
         manager = LinearLayoutManager(activity)
         rv_star_repository.layoutManager = manager
         rv_star_repository.adapter = repositoriesAdapter
         srl_star_repository.setOnLoadmoreListener(this)
         srl_star_repository.setOnRefreshListener(this)
+        srl_star_repository.refreshHeader = MaterialHeader(activity)
 
     }
 

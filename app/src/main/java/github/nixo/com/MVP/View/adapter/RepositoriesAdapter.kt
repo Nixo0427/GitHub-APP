@@ -1,6 +1,9 @@
 package github.nixo.com.MVP.View.adapter
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
@@ -12,13 +15,15 @@ import github.nixo.com.Common.NetWork.Repository.Repository
 import github.nixo.com.Ext.loadWithGlide
 import github.nixo.com.Ext.otherwise
 import github.nixo.com.Ext.yes
+import github.nixo.com.MVP.View.MDTextActivity
 import github.nixo.com.github.R
 import github.nixo.com.utils.ListBaseAdapter
 import github.nixo.com.utils.SuperViewHolder
+import org.jetbrains.anko.activityManager
 import org.jetbrains.anko.sdk15.listeners.onClick
 import org.jetbrains.anko.toast
 
-class RepositoriesAdapter(mContext : Context,startType:String? ) : ListBaseAdapter<Repository?>(mContext) {
+class RepositoriesAdapter(mContext : Activity,startType:String? ) : ListBaseAdapter<Repository?>(mContext) {
 
     override val layoutId: Int
         get() =R.layout.item_repository
@@ -63,6 +68,12 @@ class RepositoriesAdapter(mContext : Context,startType:String? ) : ListBaseAdapt
         title.text = bean.full_name
         language.text = if(TextUtils.isEmpty(bean.language)) "Unknown" else bean.language
         update.text = "updated for:   "+day+"  "+time
+        holder.itemView.onClick {
+            var intent = Intent(mContext, MDTextActivity::class.java)
+            intent.putExtra("repo",bean.name)
+            intent.putExtra("username",bean.owner.login)
+            mContext.startActivity(intent)
+        }
     }
 
 }

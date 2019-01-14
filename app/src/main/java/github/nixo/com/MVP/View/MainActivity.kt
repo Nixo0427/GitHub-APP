@@ -94,7 +94,10 @@ class MainActivity : BaseActivity<MainPresent>()  , OnAccountStateChangeListener
                     true
                 }
                 R.id.nav_menu_test->{
-                    action(MDTextActivity::class.java)
+                    var bundle = Bundle()
+                    bundle.putString("repo","NixoBottomButton")
+                    bundle.putString("username","Nixo0427")
+                    actionWithParamer(MDTextActivity::class.java,bundle)
                     true
                 }
                 else -> {

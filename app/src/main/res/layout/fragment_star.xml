@@ -11,14 +11,7 @@
         android:id="@+id/srl_star_repository"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <com.airbnb.lottie.LottieAnimationView
-            app:lottie_fileName="growing_circle.json"
-            app:lottie_imageAssetsFolder="/"
-            app:lottie_autoPlay="true"
-            android:layout_gravity="center"
-            app:lottie_loop="true"
-            android:layout_width="match_parent"
-            android:layout_height="60dp" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_star_repository"
             android:gravity="center_horizontal"
