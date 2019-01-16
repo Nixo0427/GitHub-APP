@@ -13,6 +13,10 @@
             android:id="@+id/user_bg"
             android:layout_width="match_parent"
             android:layout_height="203dp" />
+        <ImageView
+            android:src="#16000000"
+            android:layout_width="match_parent"
+            android:layout_height="203dp" />
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -58,7 +62,6 @@
                             android:id="@+id/rb_repositories"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-
                             android:layout_weight="1"
                             android:button="@null"
                             android:gravity="center"

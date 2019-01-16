@@ -5,6 +5,8 @@ import android.view.View
 import com.zzhoujay.markdown.MarkDown
 import github.nixo.com.Common.NetWork.Repository.RepositoryApi
 import github.nixo.com.Common.NetWork.Repository.RepositoryService
+import github.nixo.com.MVP.Model.ContentsRepository
+import github.nixo.com.MVP.Model._links
 import github.nixo.com.MVP.View.MDTextActivity
 import github.nixo.com.MVP.View.adapter.ContentRepositoryAdapter
 import github.nixo.com.MVP.infs.Downloadervice
@@ -39,6 +41,8 @@ class MDTextPresent : BasePresenter<MDTextActivity>() {
     fun RepositoryContent(login :String ,repo:String ,branch:String ,adapter:ContentRepositoryAdapter?,dir: String){
         RepositoryService.contentsRepositores(login,repo,dir,"master",login).subscribe({
             if (adapter != null) {
+                it.add(0, ContentsRepository("","","",0,"","","","123","",_links = _links("","","")))
+
                 adapter.setDataList(it)
             }
         },{})

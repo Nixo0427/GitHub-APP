@@ -40,7 +40,7 @@ class UserActivity : BaseActivity<EditUserPresent>() {
     }
 
     fun initTest(){
-        setResGosImage(this,R.mipmap.testheader,user_bg,0,2)
+        setResGosImage(this,R.mipmap.test,user_bg,3,2)
 //        setResGosImage(this,R.mipmap.default_header,user_toolbar_bg,0,80)
 //        setURLGosImage(this,user.avatar_url,user_card_bg,20,50)
 

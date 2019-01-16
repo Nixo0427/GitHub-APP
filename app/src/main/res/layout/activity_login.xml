@@ -56,6 +56,7 @@
                 android:layout_height="60dp">
                 <EditText
                     android:hint="@string/password"
+                    android:inputType="textPassword"
                     android:id="@+id/login_password"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />

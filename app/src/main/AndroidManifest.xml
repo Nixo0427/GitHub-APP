@@ -6,9 +6,9 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -23,7 +23,6 @@
         android:roundIcon="@mipmap/github"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="github.nixo.com"
@@ -34,19 +33,13 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-
         <activity
             android:name="github.nixo.com.MVP.View.auth.LoginActivity"
             android:label="Login"
-            android:windowSoftInputMode="stateHidden"
-            >
-
-
-
-        </activity>
-        <activity android:name="github.nixo.com.MVP.View.MainActivity"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            >
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity
+            android:name="github.nixo.com.MVP.View.MainActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,8 +47,9 @@
             </intent-filter>
         </activity>
         <activity android:name="github.nixo.com.MVP.View.auth.RegisterActivity" />
-        <activity android:name="github.nixo.com.MVP.View.auth.UserActivity"/>
-        <activity android:name="github.nixo.com.MVP.View.MDTextActivity"/>
+        <activity android:name="github.nixo.com.MVP.View.auth.UserActivity" />
+        <activity android:name="github.nixo.com.MVP.View.MDTextActivity" />
+        <activity android:name="github.nixo.com.MVP.View.FileActivity"></activity>
     </application>
 
 </manifest>

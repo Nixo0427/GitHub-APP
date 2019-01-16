@@ -16,7 +16,6 @@
         <cn.carbs.android.avatarimageview.library.AppCompatAvatarImageView
             android:id="@+id/acaiv_header"
             android:layout_gravity="center_vertical"
-            android:src="@mipmap/testheader"
             android:layout_marginLeft="15dp"
             android:layout_width="50dp"
             android:layout_height="50dp" />

@@ -12,7 +12,6 @@
         <cn.carbs.android.avatarimageview.library.AppSquareAvatarImageView
 
             android:id="@+id/item_iv_repository_img"
-            android:src="@mipmap/testheader"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
