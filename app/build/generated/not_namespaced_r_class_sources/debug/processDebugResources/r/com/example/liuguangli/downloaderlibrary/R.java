@@ -18,8 +18,8 @@ public final class R {
     public static final class string {
         private string() {}
 
-        public static final int action_settings = 0x7f0d001f;
-        public static final int app_name = 0x7f0d0020;
-        public static final int hello_world = 0x7f0d0024;
+        public static final int action_settings = 0x7f0d0029;
+        public static final int app_name = 0x7f0d002a;
+        public static final int hello_world = 0x7f0d002f;
     }
 }

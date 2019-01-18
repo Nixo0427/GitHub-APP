@@ -24,6 +24,7 @@
     <application
         android:name="github.nixo.com.github.Ext.APP"
         android:allowBackup="true"
+        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/github"
         android:label="@string/app_name"
@@ -44,8 +45,7 @@
         <activity
             android:name="github.nixo.com.MVP.View.auth.LoginActivity"
             android:label="Login"
-            android:windowSoftInputMode="stateHidden" >
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name="github.nixo.com.MVP.View.MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden" >
@@ -58,6 +58,7 @@
         <activity android:name="github.nixo.com.MVP.View.auth.RegisterActivity" />
         <activity android:name="github.nixo.com.MVP.View.auth.UserActivity" />
         <activity android:name="github.nixo.com.MVP.View.MDTextActivity" />
+        <activity android:name="github.nixo.com.MVP.View.FileActivity" />
     </application>
 
 </manifest>

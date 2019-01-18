@@ -94,6 +94,7 @@ class MDTextActivity : BaseActivity<MDTextPresent>() ,OnRefreshListener,OnLoadmo
     }
     override fun onRefresh(refreshlayout: RefreshLayout?) {
         srl_content_repository.finishRefresh()
+        adapter!!.clear()
         presenter.MDTextShowFuncation(repo)
         presenter.RepositoryContent(username,repo,"master",adapter,path)
 

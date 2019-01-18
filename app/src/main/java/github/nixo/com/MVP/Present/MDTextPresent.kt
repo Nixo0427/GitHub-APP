@@ -14,6 +14,7 @@ import github.nixo.com.github.Common.Model.AccountManager.username
 import github.nixo.com.github.R
 import github.nixo.com.github.mvp.Impl.BasePresenter
 import github.nixo.com.utils.DownLoadUtils
+import github.nixo.com.utils.dialog.LoadingDialog2
 import kotlinx.android.synthetic.main.activity_mdtext.*
 
 class MDTextPresent : BasePresenter<MDTextActivity>() {
@@ -39,13 +40,18 @@ class MDTextPresent : BasePresenter<MDTextActivity>() {
 
 //    @GET("/repos/{login}/{repo}/contents/")
     fun RepositoryContent(login :String ,repo:String ,branch:String ,adapter:ContentRepositoryAdapter?,dir: String){
+    var loadingDialog2 = LoadingDialog2(view.supportFragmentManager)
         RepositoryService.contentsRepositores(login,repo,dir,"master",login).subscribe({
+//            view.srl_content_repository.autoRefresh()
             if (adapter != null) {
                 it.add(0, ContentsRepository("","","",0,"","","","123","",_links = _links("","","")))
 
                 adapter.setDataList(it)
+                loadingDialog2.dismiss()
             }
-        },{})
+        },{
+            loadingDialog2.dismiss()
+        })
 
     }
 
