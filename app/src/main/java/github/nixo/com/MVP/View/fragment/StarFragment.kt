@@ -40,7 +40,7 @@ class StarFragment : BaseFragment<StarPrsent>(), OnRefreshListener, OnLoadmoreLi
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         activity  = getActivity() as UserActivity
-        presenter.getStarListRepoitory(activity!!.user.login,page)
+        presenter.getStarListRepoitory(activity!!.user!!.login,page)
         repositoriesAdapter = RepositoriesAdapter(activity!!,"")
         manager = LinearLayoutManager(activity)
         rv_star_repository.layoutManager = manager
@@ -57,14 +57,14 @@ class StarFragment : BaseFragment<StarPrsent>(), OnRefreshListener, OnLoadmoreLi
         srl_star_repository!!.finishRefresh()
         page = 1
         isLoadmore = false
-        presenter.getStarListRepoitory(activity!!.user.login,page)
+        presenter.getStarListRepoitory(activity!!.user!!.login,page)
     }
 
     override fun onLoadmore(refreshlayout: RefreshLayout?) {
         srl_star_repository!!.finishLoadmore()
         page++
         isLoadmore = true
-        presenter.getStarListRepoitory(activity!!.user.login,page)
+        presenter.getStarListRepoitory(activity!!.user!!.login,page)
 
     }
 

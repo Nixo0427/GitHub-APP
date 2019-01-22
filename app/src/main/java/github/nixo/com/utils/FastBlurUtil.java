@@ -10,6 +10,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 
@@ -44,50 +46,30 @@ public class FastBlurUtil {
     private static Bitmap scaledBitmap;
 
 
-    public static Bitmap GetUrlBitmap(final String url, int scaleRatio, final int guss) {
 
-        final int blurRadius = guss;//通常设置为8就行。
-        final Bitmap[] blurBitmap = new Bitmap[1];
+    public static Bitmap getUrlBitmap(String url) {
+        URL fileUrl = null;
+        Bitmap bitmap = null;
 
-        if (scaleRatio <= 0) {
-            scaleRatio = 10;
+        try {
+            fileUrl = new URL(url);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
         }
-        final Bitmap[] originBitmap = {null};
-        final int finalScaleRatio = scaleRatio;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    InputStream in = null     ;
 
-                    BufferedOutputStream out = null;
-                    in = new BufferedInputStream(new URL(url).openStream(), IO_BUFFER_SIZE);
-                    final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
-                    out = new BufferedOutputStream(dataStream, IO_BUFFER_SIZE);
-                    copy(in, out);
-                    out.flush();
-                    byte[] data = dataStream.toByteArray();
-                    originBitmap[0] = BitmapFactory.decodeByteArray(data, 0, data.length);
-                    scaledBitmap = Bitmap.createScaledBitmap(originBitmap[0],
-                            originBitmap[0].getWidth() / finalScaleRatio,
-                            originBitmap[0].getHeight() / finalScaleRatio,
-                            false);
-                    if(guss == 0){
-                    }else {
-                       blurBitmap[0] =  doBlur(scaledBitmap, blurRadius, true);
-                        Message message = handler.obtainMessage();
-                        message.obj = blurBitmap[0];
-                        message.what = 1;
-                        handler.sendMessage(message);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+        try {
+            HttpURLConnection conn = (HttpURLConnection) fileUrl
+                    .openConnection();
+            conn.setDoInput(true);
+            conn.connect();
+            InputStream is = conn.getInputStream();
+            bitmap = BitmapFactory.decodeStream(is);
+            is.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bitmap;
 
-
-        return blurBitmap[0];
 
     }
 

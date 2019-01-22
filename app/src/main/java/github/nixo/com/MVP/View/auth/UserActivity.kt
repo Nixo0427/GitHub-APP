@@ -5,9 +5,7 @@ import android.support.v4.app.FragmentManager
 import android.text.TextUtils
 import android.util.Log
 import com.yanzhenjie.sofia.Sofia
-import github.nixo.com.Ext.inT
-import github.nixo.com.Ext.loadWithGlide
-import github.nixo.com.Ext.setResGosImage
+import github.nixo.com.Ext.*
 import github.nixo.com.MVP.Present.auth.EditUserPresent
 import github.nixo.com.MVP.View.fragment.FollowerFragment
 import github.nixo.com.MVP.View.fragment.FollowingFragment
@@ -15,52 +13,60 @@ import github.nixo.com.MVP.View.fragment.MineRepositoryFragment
 import github.nixo.com.MVP.View.fragment.StarFragment
 import github.nixo.com.github.Common.Model.AccountManager
 import github.nixo.com.github.Common.Model.User
+import github.nixo.com.github.NetWork.Services.AuthService
 import github.nixo.com.github.R
 import github.nixo.com.github.mvp.Impl.BaseActivity
+import github.nixo.com.utils.DownLoadUtils
+import github.nixo.com.utils.dialog.LoadingDialog2
 import kotlinx.android.synthetic.main.activity_edit_user.*
 import org.jetbrains.anko.sdk15.listeners.onClick
 
 class UserActivity : BaseActivity<EditUserPresent>() {
 
-
-    public var user = AccountManager.currentUser!!
+    var dialog : LoadingDialog2? = null
+    var user :User? =  AccountManager.currentUser!!
     val repositoryFragment = MineRepositoryFragment()
     val followingFragment = FollowingFragment()
     val starFragment = StarFragment()
     val followerFragment = FollowerFragment()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Sofia.with(this@UserActivity).statusBarLightFont()
         setContentView(R.layout.activity_edit_user)
-        initTest()
+        dialog = LoadingDialog2()
         initOnClick()
-        supportFragmentManager.inT { replace(R.id.rv_user_fragmentContent,repositoryFragment) }
-        rb_repositories.isClickable = true
+        initUserCard()
+//        supportFragmentManager.inT { add(R.id.rv_user_fragmentContent,repositoryFragment) }
+//        supportFragmentManager.inT { replace() }
     }
 
-    fun initTest(){
-        setResGosImage(this,R.mipmap.test,user_bg,3,2)
-//        setResGosImage(this,R.mipmap.default_header,user_toolbar_bg,0,80)
-//        setURLGosImage(this,user.avatar_url,user_card_bg,20,50)
 
 
-        if(TextUtils.isEmpty(intent.getStringExtra("newUser"))) {
-            initUserCard(user)
-        } else {
+    fun initUserCard(){
+
+        var stringExtra = intent.getStringExtra("newUser")
+        (TextUtils.isEmpty(stringExtra)).no {
             presenter.serchOnlyUser(intent.getStringExtra("newUser"))
+        }.otherwise {
+            setURLGosImage(this,user!!.avatar_url,user_bg,3,2)
+            user_img.loadWithGlide(user!!.avatar_url, user!!.login.first())
+            user_name.text = user!!.login
+            user_location.text = if(TextUtils.isEmpty(user!!.location)){"Unknow"}else{
+                user!!.location}
+            user_bio.text =if(TextUtils.isEmpty(user!!.bio)){"Nothing"}else{
+                user!!.bio}
+            user_flower.text = "${user!!.followers} Follower"
+            this.user = user
+            supportFragmentManager.inT { replace(R.id.rv_user_fragmentContent,repositoryFragment) }
         }
+
     }
 
-    fun initUserCard(user : User){
-        user_img.loadWithGlide(user.avatar_url,user.login.first())
-        user_name.text = user.login
-        user_location.text = if(TextUtils.isEmpty(user.location)){"Unknow"}else{user.location}
-        user_bio.text =if(TextUtils.isEmpty(user.bio)){"Nothing"}else{user.bio}
-        user_flower.text = "${user.followers} Follower"
-        this.user = user
+    override fun onResume() {
+        super.onResume()
     }
-
 
     fun initOnClick(){
         iv_back.onClick {

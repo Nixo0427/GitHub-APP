@@ -40,17 +40,16 @@ class MDTextPresent : BasePresenter<MDTextActivity>() {
 
 //    @GET("/repos/{login}/{repo}/contents/")
     fun RepositoryContent(login :String ,repo:String ,branch:String ,adapter:ContentRepositoryAdapter?,dir: String){
-    var loadingDialog2 = LoadingDialog2(view.supportFragmentManager)
+    var loadingDialog2 = LoadingDialog2().getLoadDialog(view.supportFragmentManager)
         RepositoryService.contentsRepositores(login,repo,dir,"master",login).subscribe({
 //            view.srl_content_repository.autoRefresh()
             if (adapter != null) {
                 it.add(0, ContentsRepository("","","",0,"","","","123","",_links = _links("","","")))
-
-                adapter.setDataList(it)
                 loadingDialog2.dismiss()
+                adapter.setDataList(it)
             }
         },{
-            loadingDialog2.dismiss()
+            loadingDialog2
         })
 
     }

@@ -19,7 +19,9 @@ import github.nixo.com.github.R
 import github.nixo.com.utils.dialog.DialogBuilder
 import github.nixo.com.utils.dialog.LoadingDialog
 import github.nixo.com.utils.mvp.Impl.BaseFragment
+import kotlinx.android.synthetic.main.activity_edit_user.*
 import kotlinx.android.synthetic.main.fragment_following.*
+import org.jetbrains.anko.image
 import org.jetbrains.anko.sdk15.listeners.onClick
 import org.jetbrains.anko.support.v4.toast
 
@@ -91,6 +93,9 @@ class FollowingFragment : BaseFragment<FollowingPresent>()
             var paramer = Bundle()
             paramer.putString("newUser",data!!.login)
             actionWithParamer(UserActivity::class.java,paramer)
+//            activity!!.user_bg.image = activity.resources.getDrawable(R.mipmap.login_logo)
+            activity!!.user_bg.setImageDrawable( activity!!.getDrawable(R.drawable.white_raduis_bg))
+            activity!!.user = null
             activity!!.finish()
         }
 

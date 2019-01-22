@@ -10,21 +10,25 @@ import github.nixo.com.github.Common.Model.AccountManager
 import github.nixo.com.github.Common.Model.User
 import github.nixo.com.github.Ext.logger
 import github.nixo.com.github.mvp.Impl.BasePresenter
+import github.nixo.com.utils.dialog.LoadingDialog2
 import kotlinx.android.synthetic.main.public_no_data.*
 import org.jetbrains.anko.support.v4.toast
 
 class FollowingPresent : BasePresenter<FollowingFragment>() {
 
     fun getFollowing(){
-        FollowService.allFollowing(view.activity!!.user.login)
+        val loadingDialog2 = LoadingDialog2().getLoadDialog(view.activity!!.supportFragmentManager)
+        FollowService.allFollowing(view.activity!!.user!!.login)
                 .subscribe({
                         if (it.size == 0) {
                             view.ll_no_data.visibility = View.VISIBLE
                         } else {
                             view.ll_no_data.visibility = View.GONE
                             view.adapter!!.setDataList(it)
+                            loadingDialog2.dismiss()
                         }
                 },{
+                    loadingDialog2.dismiss()
                     view.ll_no_data.visibility = View.VISIBLE
                     view.toast("Something Wrong!")
                 })
