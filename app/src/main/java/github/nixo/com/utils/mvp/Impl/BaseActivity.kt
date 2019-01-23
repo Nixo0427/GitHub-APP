@@ -1,9 +1,11 @@
 package github.nixo.com.github.mvp.Impl
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
+import android.transition.Slide
 import android.view.MotionEvent
 import github.nixo.com.github.Ext.APP
 import github.nixo.com.github.Ext.AppContext
@@ -62,6 +64,8 @@ abstract class BaseActivity<out P : BasePresenter<BaseActivity<P>>> : IView<P>, 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter.onCreate(savedInstanceState)
+        window.enterTransition = Slide().setDuration(500)
+        window.exitTransition = Slide().setDuration(500)
     }
 
     override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
@@ -70,16 +74,18 @@ abstract class BaseActivity<out P : BasePresenter<BaseActivity<P>>> : IView<P>, 
 
     public fun action(activity : Class<*>){
         var intent = Intent(baseContext,activity)
-        startActivity(intent)
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
     }
 
     public fun actionWithParamer(activity: Class<*>,bundle: Bundle){
         var intent = Intent()
         intent.setClass(this@BaseActivity,activity)
         intent.putExtras(bundle)
-        startActivity(intent)
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
 
     }
+
+
 
     override fun startActivity(intent: Intent?) {
         super.startActivity(intent)

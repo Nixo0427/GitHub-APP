@@ -15,6 +15,9 @@ import github.nixo.com.github.R
 import github.nixo.com.github.mvp.Impl.BasePresenter
 import github.nixo.com.utils.DownLoadUtils
 import github.nixo.com.utils.dialog.LoadingDialog2
+import io.github.kbiakov.codeview.adapters.Options
+import io.github.kbiakov.codeview.highlight.ColorTheme
+import kotlinx.android.synthetic.main.activity_file.*
 import kotlinx.android.synthetic.main.activity_mdtext.*
 
 class MDTextPresent : BasePresenter<MDTextActivity>() {
@@ -24,25 +27,27 @@ class MDTextPresent : BasePresenter<MDTextActivity>() {
             Downloadervice.getMDInfo(it.download_url).subscribe({
                 var utils = DownLoadUtils()
                 var mMdText = utils.saveFiles(it, "${Environment.getExternalStorageDirectory()}/com.nixo.github/md/", "README2.md")
-                view.tv_mdtext!!.post {
-                    val spanned = MarkDown.fromMarkdown(mMdText.toString(), {
-                        val drawable = view.resources.getDrawable(R.mipmap.logo2)
-                        drawable.setBounds(0, 0, 400, 400)
-                        drawable
-                    }, view.tv_mdtext)
-                    view.tv_mdtext!!.text = spanned
-                }
+                var withTheme = Options.get(view.baseContext).withTheme(ColorTheme.SOLARIZED_LIGHT)
+                withTheme.shortcut = false
+                withTheme.animateOnHighlight = true
+                withTheme.language = "md"
+                withTheme.shadows
+                view.code_view.setOptions(withTheme)
+                //todo 栈溢出 ， 回家找原因 :c
+                // we handle here instead of another method so we don't add stacks to the frame
+                // which can prevent it from being able to handle StackOverflow
+                view.code_view.setCode(mMdText)
             }, {
             })
 
         }, {})
     }
 
-//    @GET("/repos/{login}/{repo}/contents/")
+    //    @GET("/repos/{login}/{repo}/contents/")
     fun RepositoryContent(login :String ,repo:String ,branch:String ,adapter:ContentRepositoryAdapter?,dir: String){
-    var loadingDialog2 = LoadingDialog2().getLoadDialog(view.supportFragmentManager)
+        var loadingDialog2 = LoadingDialog2().getLoadDialog(view.supportFragmentManager)
         RepositoryService.contentsRepositores(login,repo,dir,"master",login).subscribe({
-//            view.srl_content_repository.autoRefresh()
+            //            view.srl_content_repository.autoRefresh()
             if (adapter != null) {
                 it.add(0, ContentsRepository("","","",0,"","","","123","",_links = _links("","","")))
                 loadingDialog2.dismiss()
